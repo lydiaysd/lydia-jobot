@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'saved_jobs/new'
-  get 'saved_jobs/create'
-  get 'saved_jobs/destroy'
   devise_for :users
   root to: 'pages#home'
   resources :jobs, except: [:update, :edit] do
