@@ -1,3 +1,5 @@
+require 'nokigiri'
+require 'open-uri'
 class JobsController < ApplicationController
   def index
   end
@@ -9,6 +11,7 @@ class JobsController < ApplicationController
   end
 
   def create
+
   end
 
   def destroy
