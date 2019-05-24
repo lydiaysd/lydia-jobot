@@ -1,2 +1,13 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+
+<%= simple_form_for @job do |f| %>
+
+  <h5>Let’s get started!</h5>
+  <h5>What programming languages do you know?</h5>
+  <%= select_tag "skills", options_from_collection_for_select(Skill.all, "id", "name"), class: 'js-example-basic-multiple', multiple: true %>
+
+  <%= f.button :submit %>
+
+<% end %>
