@@ -1,47 +1,12 @@
 <h1>Jobs#index</h>
-
-<div class="card-job">
-  <%  @html_doc.search(".job-result").each do |element| %>
-    <div class="card-job-infos m-5">
-      <% title = element.search(".title").text.strip %>
-      <h2><%= title %></h2>
-      <% date = element.search(".posted-by").text.strip %>
-      <p><%= date %></p>
-      <% details = element.search(".list-unstyled").text.strip %>
-      <p><%= details %></p>
-      <% location = element.search(".location").text.strip.split("\r").first %>
-      <p><%= location %></p>
-      <% description = element.search(".description").text.strip %>
-      <p><%= description %></p>
+<h2>Reed</h2>
+  <% @jobs.each do |job| %>
+    <div class="card-job">
+      <p><%= job.job_role %></p>
+      <p><%= job.location %></p>
+      <p><%= job.total_compensation %></p>
+      <p><%= job.date_posted %></p>
     </div>
   <% end %>
-</div>
 
 
-<% jobs_sorted = [] %>
-<% @jobs.each do |element| %>
-  <% summary = element.search(".summary").text.strip %>
-  <% if summary.include?('HTML') %>
-    <% jobs_sorted << element %>
-  <% end %>
-
-<% end %>
-<!-- date.match(/^(\d+)/)[0].to_i  -->
-
-
-<% jobs_sorted.each do |element| %>
-
-  <% title = element.search(".title a").text.strip %>
-
-  <p><%= title %></p>
-  <% salary = element.search(".salary").text.strip %>
-  <p><%= salary %></p>
-  <% location = element.search(".location").text.strip %>
-  <p><%= location %></p>
-   <% date = element.search(".date").text.strip %>
-  <p><%= date %></p>
-  <% summary = element.search(".summary").text.strip %>
-  <p><%= summary %></p>
-
-
-<% end %>
