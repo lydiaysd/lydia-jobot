@@ -5,7 +5,6 @@ class Job < ApplicationRecord
   has_many :skills, through: :job_skills
 end
 
-
 # add job id and skill id to job_skills table (done)
 # remove skills from jobs table (done)
 # create simple form for a job (this will be the chat)
