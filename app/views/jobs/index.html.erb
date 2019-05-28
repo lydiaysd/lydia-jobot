@@ -1,7 +1,7 @@
 <h1>Jobs#index</h>
 
 <div class="card-job">
-  <%  @html_doc.search(".job-result").first(10).each do |element| %>
+  <%  @html_doc.search(".job-result").each do |element| %>
     <div class="card-job-infos m-5">
       <% title = element.search(".title").text.strip %>
       <h2><%= title %></h2>
