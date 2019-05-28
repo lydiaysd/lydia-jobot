@@ -15,4 +15,4 @@ end
 # watir gem - can render the divs
 # mechanize - can simulate an user log in
 
-# should we have a search table? every user has a search and that search can be used by many users (faster scraping)
+# should we have a search table? every user has a search and that search can be used by many users (faster scraping )

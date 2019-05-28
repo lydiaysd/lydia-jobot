@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_24_155355) do
+ActiveRecord::Schema.define(version: 2019_05_28_164301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.integer "number_of_employees"
+    t.string "company_type"
+  end
+
+  create_table "company_industries", force: :cascade do |t|
+    t.bigint "company_id"
+    t.bigint "industry_id"
+    t.index ["company_id"], name: "index_company_industries_on_company_id"
+    t.index ["industry_id"], name: "index_company_industries_on_industry_id"
+  end
 
   create_table "industries", force: :cascade do |t|
     t.string "name"
@@ -21,20 +34,40 @@ ActiveRecord::Schema.define(version: 2019_05_24_155355) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "job_languages", force: :cascade do |t|
+    t.bigint "job_id"
+    t.bigint "language_id"
+    t.index ["job_id"], name: "index_job_languages_on_job_id"
+    t.index ["language_id"], name: "index_job_languages_on_language_id"
+  end
+
   create_table "job_skills", force: :cascade do |t|
+    t.bigint "skill_id"
+    t.bigint "job_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_job_skills_on_job_id"
+    t.index ["skill_id"], name: "index_job_skills_on_skill_id"
   end
 
   create_table "jobs", force: :cascade do |t|
+    t.text "description"
+    t.string "job_title"
     t.string "location"
-    t.integer "total_compensation"
-    t.integer "years_experience"
-    t.boolean "visa", default: false
-    t.date "date_posted"
+    t.string "total_compensation"
+    t.string "years_experience"
+    t.string "education_degree"
+    t.boolean "visa_sponsor", default: false
+    t.string "date_posted"
+    t.string "employment_type"
+    t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "job_role"
+    t.index ["company_id"], name: "index_jobs_on_company_id"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "saved_jobs", force: :cascade do |t|
@@ -61,9 +94,20 @@ ActiveRecord::Schema.define(version: 2019_05_24_155355) do
     t.index ["user_id"], name: "index_user_industries_on_user_id"
   end
 
+  create_table "user_languages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "language_id"
+    t.index ["language_id"], name: "index_user_languages_on_language_id"
+    t.index ["user_id"], name: "index_user_languages_on_user_id"
+  end
+
   create_table "user_skills", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "skill_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["skill_id"], name: "index_user_skills_on_skill_id"
+    t.index ["user_id"], name: "index_user_skills_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -74,12 +118,32 @@ ActiveRecord::Schema.define(version: 2019_05_24_155355) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "job_title"
+    t.string "location"
+    t.string "total_compensation"
+    t.string "years_experience"
+    t.string "education_degree"
+    t.boolean "visa_sponsor", default: false
+    t.string "date_posted"
+    t.string "employment_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "company_industries", "companies"
+  add_foreign_key "company_industries", "industries"
+  add_foreign_key "job_languages", "jobs"
+  add_foreign_key "job_languages", "languages"
+  add_foreign_key "job_skills", "jobs"
+  add_foreign_key "job_skills", "skills"
+  add_foreign_key "jobs", "companies"
   add_foreign_key "saved_jobs", "jobs"
   add_foreign_key "saved_jobs", "users"
   add_foreign_key "user_industries", "industries"
   add_foreign_key "user_industries", "users"
+  add_foreign_key "user_languages", "languages"
+  add_foreign_key "user_languages", "users"
+  add_foreign_key "user_skills", "skills"
+  add_foreign_key "user_skills", "users"
 end

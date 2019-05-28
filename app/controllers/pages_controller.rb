@@ -4,4 +4,9 @@ class PagesController < ApplicationController
   def home
     @job = Job.new
   end
+
+  def new
+    @user_skill = UserSkill.new
+    @job = Job.new
+  end
 end
