@@ -2,8 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 class JobsController < ApplicationController
   def index
-    @url = "https://www.reed.co.uk/jobs/ruby-jobs-in-london"
-    @html_doc = Nokogiri::HTML(open(@url).read)
+    reed_scraper
   end
 
   def show
@@ -13,9 +12,15 @@ class JobsController < ApplicationController
   end
 
   def create
-
   end
 
   def destroy
+  end
+
+  private
+
+  def reed_scraper
+    @url = "https://www.reed.co.uk/jobs/web-developer-jobs-in-london"
+    @html_doc = Nokogiri::HTML(open(@url).read)
   end
 end

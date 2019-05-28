@@ -1,11 +1,18 @@
 <h1>Jobs#index</h>
 
 <div class="card-job">
-  <%  @html_doc.search(".job-result").each do |element| %>
-    <div class="card-job-infos">
-      <div>
-        <p><%= element.text.strip %></p>
-      </div>
-  </div>
+  <%  @html_doc.search(".job-result").first(10).each do |element| %>
+    <div class="card-job-infos m-5">
+      <% title = element.search(".title").text.strip %>
+      <h2><%= title %></h2>
+      <% date = element.search(".posted-by").text.strip %>
+      <p><%= date %></p>
+      <% details = element.search(".list-unstyled").text.strip %>
+      <p><%= details %></p>
+      <% location = element.search(".location").text.strip.split("\r").first %>
+      <p><%= location %></p>
+      <% description = element.search(".description").text.strip %>
+      <p><%= description %></p>
+    </div>
   <% end %>
 </div>
