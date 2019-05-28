@@ -1,7 +1,23 @@
-require 'nokogiri'
-require 'open-uri'
+require "open-uri"
+require "nokogiri"
 
 Job.destroy_all
+
+puts "Scraping jobs from indeed.co.uk"
+    url = "https://www.indeed.co.uk/Web-Developer-jobs-in-London"
+
+  html_doc = Nokogiri::HTML(open(url).read)
+  html_doc.search(".jobsearch-SerpJobCard").each do |element|
+    show_url = element.search(".title a").attribute('href').value
+    full_url = "https://www.indeed.co.uk#{show_url}"
+    html_show = Nokogiri::HTML(open(full_url).read)
+    job = Job.create!(
+      role: html_show.search("#vjs-jobtitle").text.strip,
+      location: html_show.search("#vjs-loc").text.strip,
+      date_posted: html_show.search("#date").text.strip,
+      total_compensation: html_show.search("#salary.no-wrap").text.strip,
+    )
+  end
 
 puts "Scraping jobs from reed.co.uk"
   @url = "https://www.reed.co.uk/jobs/web-developer-jobs-in-london"
@@ -17,5 +33,4 @@ puts "Scraping jobs from reed.co.uk"
         location: html_show.search(".location").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
         date_posted: html_show.search(".time").text.strip.gsub( /(\r\n)|(\s)/m, "" )
       )
-      job.save!
   end
