@@ -16,3 +16,32 @@
     </div>
   <% end %>
 </div>
+
+
+<% jobs_sorted = [] %>
+<% @jobs.each do |element| %>
+  <% summary = element.search(".summary").text.strip %>
+  <% if summary.include?('HTML') %>
+    <% jobs_sorted << element %>
+  <% end %>
+
+<% end %>
+<!-- date.match(/^(\d+)/)[0].to_i  -->
+
+
+<% jobs_sorted.each do |element| %>
+
+  <% title = element.search(".title a").text.strip %>
+
+  <p><%= title %></p>
+  <% salary = element.search(".salary").text.strip %>
+  <p><%= salary %></p>
+  <% location = element.search(".location").text.strip %>
+  <p><%= location %></p>
+   <% date = element.search(".date").text.strip %>
+  <p><%= date %></p>
+  <% summary = element.search(".summary").text.strip %>
+  <p><%= summary %></p>
+
+
+<% end %>
