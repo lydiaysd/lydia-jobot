@@ -2,8 +2,9 @@
 <h2>Reed</h2>
   <% @jobs.each do |job| %>
     <div class="card-job">
-      <p><%= job.job_role %></p>
+      <p><%= job.job_title %></p>
       <p><%= job.location %></p>
+      <p><%= job.description %></p>
       <p><%= job.total_compensation %></p>
       <p><%= job.date_posted %></p>
     </div>
