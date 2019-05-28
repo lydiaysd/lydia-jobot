@@ -4,6 +4,7 @@ require "nokogiri"
 class JobsController < ApplicationController
   def index
     indeed_scraper
+    reed_scraper
   end
 
   def show
@@ -20,6 +21,10 @@ class JobsController < ApplicationController
 
   private
 
+  def reed_scraper
+    @url = "https://www.reed.co.uk/jobs/web-developer-jobs-in-london"
+    @html_doc = Nokogiri::HTML(open(@url).read)
+  end
 
   def indeed_scraper
     # url = "https://www.indeed.co.uk/jobs?q=#{}&l=#{}"
