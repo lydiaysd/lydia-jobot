@@ -1,36 +1,12 @@
-<h1>Jobs#index</h1>
-<p>Find me in app/views/jobs/index.html.erb</p>
-
-
-<% jobs_sorted = [] %>
-<% @jobs.each do |element| %>
-  <% summary = element.search(".summary").text.strip %>
-  <% if summary.include?('HTML') %>
-    <% jobs_sorted << element %>
+<h1>Jobs#index</h>
+<h2>Reed</h2>
+  <% @jobs.each do |job| %>
+    <div class="card-job">
+      <p><%= job.job_role %></p>
+      <p><%= job.location %></p>
+      <p><%= job.total_compensation %></p>
+      <p><%= job.date_posted %></p>
+    </div>
   <% end %>
-
-<% end %>
-<!-- date.match(/^(\d+)/)[0].to_i  -->
-
-
-<% jobs_sorted.each do |element| %>
-
-  <% title = element.search(".title a").text.strip %>
-
-  <p><%= title %></p>
-  <% salary = element.search(".salary").text.strip %>
-  <p><%= salary %></p>
-  <% location = element.search(".location").text.strip %>
-  <p><%= location %></p>
-   <% date = element.search(".date").text.strip %>
-  <p><%= date %></p>
-  <% summary = element.search(".summary").text.strip %>
-  <p><%= summary %></p>
-
-
-<% end %>
-
-
-
 
 

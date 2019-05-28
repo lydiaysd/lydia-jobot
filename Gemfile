@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
+gem 'country_select'
+
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
@@ -15,6 +17,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'nokogiri', '~> 1.6', '>= 1.6.8'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

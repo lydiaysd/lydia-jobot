@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def index
-    # indeed_scraper
+    @jobs = Job.all
   end
 
   def show
