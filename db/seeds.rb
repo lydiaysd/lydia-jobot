@@ -98,17 +98,17 @@ puts "Scraping jobs from reed.co.uk"
       company = Company.find_by(name: company_name)
     else
       company = Company.new(name: company_name)
-      # binding.pry
       company.remote_logo_url = logo.nil? ? "https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?cs=srgb&dl=astronomy-black-wallpaper-constellation-2150.jpg&fm=jpg" : logo
       company.save
     end
     puts company
     job = Job.create!(
       job_title: html_show.search(".col-xs-12 h1").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
-      description: html_show.search(".description").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
+      description: html_show.search(".description").text.strip,
       total_compensation: html_show.search(".salary").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
       location: html_show.search('.location span[data-qa="localityLbl"]').text.strip.gsub( /(\r\n)|(\s)/m, "" ),
-      date_posted: html_show.search(".time").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
+      employment_type: html_show.search(".time").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
+      date_posted: Date.parse(html_show.search('.posted meta').attr('content')&.value),
       company: company
     )
 

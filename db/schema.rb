@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_05_29_150156) do
     t.string "years_experience"
     t.string "education_degree"
     t.boolean "visa_sponsor", default: false
-    t.string "date_posted"
+    t.boolean "date_posted"
     t.string "employment_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2019_05_29_150156) do
     t.string "years_experience"
     t.string "education_degree"
     t.boolean "visa_sponsor", default: false
-    t.string "date_posted"
+    t.date "date_posted"
     t.string "employment_type"
     t.bigint "company_id"
     t.datetime "created_at", null: false
@@ -158,7 +158,7 @@ ActiveRecord::Schema.define(version: 2019_05_29_150156) do
     t.string "years_experience"
     t.string "education_degree"
     t.boolean "visa_sponsor", default: false
-    t.string "date_posted"
+    t.boolean "date_posted"
     t.string "employment_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

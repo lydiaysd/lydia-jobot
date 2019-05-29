@@ -1,16 +1,15 @@
-import noUiSlider from 'nouislider'
+import noUiSlider from 'nouislider';
 
-const initSlider = () => {
-  const slider = document.querySelector('.slider');
-    noUiSlider.create(slider, {
-      start: [Number.parseInt(priceSliderInput.value,10) || 100],
-      step: 1,
+const initSlider = (elementId) => {
+  const slider = document.getElementById(elementId);
+  noUiSlider.create(slider, {
+      start: [100000, 900000],
+      connect: true,
       range: {
-          'min': [0],
-          'max': [100]
-      },
-      connect: [true, false]
-    });
+          'min': 0,
+          'max': 1000000
+      }
+  });
 }
 
 export { initSlider }

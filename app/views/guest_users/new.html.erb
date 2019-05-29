@@ -19,21 +19,22 @@
     <%= f.association :languages, as: :select, collection: Language.all, input_html: { class: 'js-example-basic-multiple', multiple: true } %>
 
     <h5>What's your target total compensation (full year)?</h5>
-
-    <p>from x to y</p>
+    <div id="compensation_slider"></div>
 
     <h5>How many years of professional experience do you have?</h5>
 
-    <p>7 years or 7 or seven </p>
+    <div id="experience_slider"></div>
 
     <h5>Which industries are you interested in?</h5>
+    <%= f.association :industries, as: :select, collection: Industry.all, input_html: { class: 'js-example-basic-multiple', multiple: true } %>
 
     <h5>What's you education level?</h5>
-
+    <%= f.input :education_degree, as: :select, collection: @education_degrees, input_html: { class: 'js-example-basic-multiple', multiple: true } %>
 
 
     <h5>Are you interested in jobs posted over 30 days ago?</h5>
-
+    <%= f.input :date_posted, as: :radio_buttons %>
+    <%= f.submit %>
 
   <% end %>
 

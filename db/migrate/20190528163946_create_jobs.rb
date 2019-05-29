@@ -8,7 +8,7 @@ class CreateJobs < ActiveRecord::Migration[5.2]
       t.string :years_experience
       t.string :education_degree
       t.boolean :visa_sponsor, default: false
-      t.string :date_posted
+      t.date :date_posted
       t.string :employment_type
       t.references :company, foreign_key: true
       t.timestamps
