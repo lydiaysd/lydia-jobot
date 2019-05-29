@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get '/new', to: 'pages#new'
-
+  get '/welcome', to: 'pages#welcome'
   resources :user_skill
 
   resources :jobs do
