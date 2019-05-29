@@ -1,4 +1,4 @@
-.card-product {
+.job-card {
   height: 120px;
   width: 30%;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -9,30 +9,30 @@
   overflow: scroll;
   padding: 16px 16px;
   background-color: white;
+
 }
 
-
-.card-product img {
+.job_img {
   height: 100%;
   width: 120px;
   object-fit: cover;
 }
 
-.card-product h3 {
+.job-card-info h3 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
   color: #61E1E0;
 }
 
-.card-product h5 {
+.job-card-info h5 {
   font-size: 14px;
   font-weight: bold;
   margin: 0;
   color: #A7ACAC;
 }
 
-.card-product p {
+.job-card-info p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -41,6 +41,6 @@
   color: #A7ACAC;
 }
 
-.card-product .card-product-info {
+.job-card .job-card-info {
   padding: 16px;
 }

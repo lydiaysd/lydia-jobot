@@ -1,23 +1,4 @@
-<h1>Jobs#index</h>
-
 <!-- NavBar -->
-
-<div class="card-holder">
-  <div class="card-product">
-    <div class="card-product-info">
-      <% @jobs.each do |job| %>
-        <div class="card-job">
-      <!--  put code here for image from firefly project -->
-          <h3><%= job_title %></h3>
-          <h5><<%# job.location %></h5>
-            <h5><%= job.date_posted %></h5>
-          <p><%= job.total_compensation %></p>
-          <p><%# job.description.truncate(31) %></p>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
 
 <h2>Animated Sidenav Example</h2>
 <p>Click on the element below to open the side navigation menu.</p>
@@ -29,3 +10,21 @@
   <a href="#">Clients</a>
   <a href="#">Contact</a>
 </div>
+
+<div class="card-holder">
+  <div class="job-card">
+      <% @jobs.each do |job| %>
+
+        <div class="card-job">
+
+          <h3><%= job_title %></h3>
+          <h5><<%# job.location %></h5>
+          <h5><%= job.date_posted %></h5>
+          <p><%= job.total_compensation %></p>
+          <p><%# job.description.truncate(31) %></p>
+        </div>
+       <% end %>
+  </div>
+</div>
+
+
