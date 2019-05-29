@@ -14,15 +14,16 @@
 <div class="card-holder">
   <div class="job-card">
       <% @jobs.each do |job| %>
-        <div class="job-card-info">
-         <%= image_tag 'default-job.png', class: "job_img") %>
-          <h3><%= job.job_role %></h3>s
-          <h5><<%# job.company %></h5>
-          <h5><%= job.location %></h5>
+
+        <div class="card-job">
+
+          <h3><%= job_title %></h3>
+          <h5><<%# job.location %></h5>
+          <h5><%= job.date_posted %></h5>
           <p><%= job.total_compensation %></p>
           <p><%# job.description.truncate(31) %></p>
         </div>
-      <% end %>
+       <% end %>
   </div>
 </div>
 
