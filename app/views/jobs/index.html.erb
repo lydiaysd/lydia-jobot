@@ -1,13 +1,49 @@
-<h1>Jobs#index</h>
-<h2>Reed</h2>
-  <% @jobs.each do |job| %>
-    <div class="card-job">
-      <p><%= job.job_title %></p>
-      <p><%= job.location %></p>
-      <p><%= job.description %></p>
-      <p><%= job.total_compensation %></p>
-      <p><%= job.date_posted %></p>
-    </div>
-  <% end %>
+
+<div class="container">
+<!-- NavBar -->
 
 
+<p>Animated Sidenav Example</p>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+
+<div class="header-text">
+  <h2> JoBot found these <%= @jobs.count %> jobs for you!</h2>
+</div>
+
+
+<div class="card-holder">
+
+    <% @jobs.each do |job| %>
+      <div class="cards">
+        <%= image_tag 'default-job.png', class: "default_job" %>
+          <div class="card-info">
+            <h3><%= job.job_title.truncate(40) %></h3>
+            <h5><%# job.location.truncate(30) %></h5>
+            <h5><<%= job.date_posted %></h5>
+            <p><%# job.total_compensation.truncate(35) %></p>
+            <p><%= job.description.truncate(31) %></p>
+          </div>
+          <div class="overlay">
+            <h2>View Job</h2>
+          </div>
+      </div>
+
+    <% end %>
+  </div>
+
+
+
+  <div class="down-arrow-click">
+    <a href="#"><i class="fa fa-angle-down"></i></a>
+  </div>
+
+<!-- container end div -->
+</div>
