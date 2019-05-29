@@ -37,7 +37,7 @@ puts "Scraping jobs from indeed.co.uk"
     full_url = "https://www.indeed.co.uk#{show_url}"
     html_show = Nokogiri::HTML(open(full_url).read)
     job = Job.create!(
-      role: html_show.search("#vjs-jobtitle").text.strip,
+      job_title: html_show.search("#vjs-jobtitle").text.strip,
       location: html_show.search("#vjs-loc").text.strip,
       date_posted: html_show.search("#date").text.strip,
       total_compensation: html_show.search("#salary.no-wrap").text.strip,
@@ -52,8 +52,8 @@ puts "Scraping jobs from reed.co.uk"
     full_url = "https://www.reed.co.uk#{show_url}"
     html_show = Nokogiri::HTML(open(full_url).read)
       job = Job.create!(
-        job_role: html_show.search(".col-xs-12 h1").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
-        # description: html_show.search(".description").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
+        job_title: html_show.search(".col-xs-12 h1").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
+        description: html_show.search(".description").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
         total_compensation: html_show.search(".salary").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
         location: html_show.search(".location").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
         date_posted: html_show.search(".time").text.strip.gsub( /(\r\n)|(\s)/m, "" )
