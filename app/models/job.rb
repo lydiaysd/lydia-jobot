@@ -3,6 +3,7 @@ class Job < ApplicationRecord
   has_many :saved_jobs
   has_many :users, through: :saved_jobs
   has_many :skills, through: :job_skills
+  belongs_to :company
 end
 
 # add job id and skill id to job_skills table (done)

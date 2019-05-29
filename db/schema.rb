@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_164301) do
+ActiveRecord::Schema.define(version: 2019_05_29_150156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,13 +19,32 @@ ActiveRecord::Schema.define(version: 2019_05_28_164301) do
     t.string "name"
     t.integer "number_of_employees"
     t.string "company_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "logo"
   end
 
   create_table "company_industries", force: :cascade do |t|
     t.bigint "company_id"
     t.bigint "industry_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_company_industries_on_company_id"
     t.index ["industry_id"], name: "index_company_industries_on_industry_id"
+  end
+
+  create_table "guest_users", force: :cascade do |t|
+    t.string "name"
+    t.string "job_title"
+    t.string "location"
+    t.string "total_compensation"
+    t.string "years_experience"
+    t.string "education_degree"
+    t.boolean "visa_sponsor", default: false
+    t.string "date_posted"
+    t.string "employment_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "industries", force: :cascade do |t|
@@ -37,6 +56,8 @@ ActiveRecord::Schema.define(version: 2019_05_28_164301) do
   create_table "job_languages", force: :cascade do |t|
     t.bigint "job_id"
     t.bigint "language_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["job_id"], name: "index_job_languages_on_job_id"
     t.index ["language_id"], name: "index_job_languages_on_language_id"
   end
@@ -68,6 +89,8 @@ ActiveRecord::Schema.define(version: 2019_05_28_164301) do
 
   create_table "languages", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "saved_jobs", force: :cascade do |t|
@@ -75,6 +98,8 @@ ActiveRecord::Schema.define(version: 2019_05_28_164301) do
     t.bigint "job_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "guest_user_id"
+    t.index ["guest_user_id"], name: "index_saved_jobs_on_guest_user_id"
     t.index ["job_id"], name: "index_saved_jobs_on_job_id"
     t.index ["user_id"], name: "index_saved_jobs_on_user_id"
   end
@@ -90,6 +115,8 @@ ActiveRecord::Schema.define(version: 2019_05_28_164301) do
     t.bigint "industry_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "guest_user_id"
+    t.index ["guest_user_id"], name: "index_user_industries_on_guest_user_id"
     t.index ["industry_id"], name: "index_user_industries_on_industry_id"
     t.index ["user_id"], name: "index_user_industries_on_user_id"
   end
@@ -97,6 +124,10 @@ ActiveRecord::Schema.define(version: 2019_05_28_164301) do
   create_table "user_languages", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "language_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "guest_user_id"
+    t.index ["guest_user_id"], name: "index_user_languages_on_guest_user_id"
     t.index ["language_id"], name: "index_user_languages_on_language_id"
     t.index ["user_id"], name: "index_user_languages_on_user_id"
   end
@@ -106,6 +137,8 @@ ActiveRecord::Schema.define(version: 2019_05_28_164301) do
     t.bigint "skill_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "guest_user_id"
+    t.index ["guest_user_id"], name: "index_user_skills_on_guest_user_id"
     t.index ["skill_id"], name: "index_user_skills_on_skill_id"
     t.index ["user_id"], name: "index_user_skills_on_user_id"
   end
@@ -138,12 +171,16 @@ ActiveRecord::Schema.define(version: 2019_05_28_164301) do
   add_foreign_key "job_skills", "jobs"
   add_foreign_key "job_skills", "skills"
   add_foreign_key "jobs", "companies"
+  add_foreign_key "saved_jobs", "guest_users"
   add_foreign_key "saved_jobs", "jobs"
   add_foreign_key "saved_jobs", "users"
+  add_foreign_key "user_industries", "guest_users"
   add_foreign_key "user_industries", "industries"
   add_foreign_key "user_industries", "users"
+  add_foreign_key "user_languages", "guest_users"
   add_foreign_key "user_languages", "languages"
   add_foreign_key "user_languages", "users"
+  add_foreign_key "user_skills", "guest_users"
   add_foreign_key "user_skills", "skills"
   add_foreign_key "user_skills", "users"
 end

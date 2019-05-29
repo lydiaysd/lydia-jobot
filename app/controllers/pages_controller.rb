@@ -5,7 +5,5 @@ class PagesController < ApplicationController
   end
 
   def new
-    @user_skill = UserSkill.new
-    @job = Job.new
   end
 end

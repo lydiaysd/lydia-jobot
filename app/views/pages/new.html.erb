@@ -3,25 +3,39 @@
   <h5>Let’s get started!</h5>
 
   <h5>What job titles are you looking for?</h5>
+    <%= select_tag "job_title", options_from_collection_for_select(Job.all.map(&:job_title).uniq.reject(&:blank?), "strip", "strip"), class: 'js-example-basic-multiple', multiple: true %>
+    <%= f.button :submit, "Submit" %>
 
   <h5>Where do you want to work?</h5>
+  <%= select_tag "location", options_from_collection_for_select(Job.all.map(&:location).uniq.reject(&:blank?), "strip", "strip"), class: 'js-example-basic-multiple', multiple: true %>
+  <%= f.button :submit, "Submit" %>
+
+  <h5>Do you need a visa to work in #{location}?</h5>
+    <p> YES OR NO </p>
 
   <h5>What programming languages do you know?</h5>
     <%= select_tag "skills", options_from_collection_for_select(Skill.all, "id", "name"), class: 'js-example-basic-multiple', multiple: true %>
-    <%= f.button :submit %>
+    <%= f.button :submit, "Submit" %>
 
-  <h5>What languages do you speak?</h5>
+  <h5>What human languages do you speak?</h5>
+    <%= select_tag "languages", options_from_collection_for_select(Language.all, "id", "name"), class: 'js-example-basic-multiple', multiple: true %>
+    <%= f.button :submit, "Submit" %>
 
   <h5>What's your target total compensation (full year)?</h5>
 
+  <p>from x to y</p>
+
   <h5>How many years of professional experience do you have?</h5>
+
+  <p>7 years or 7 or seven </p>
 
   <h5>Which industries are you interested in?</h5>
 
   <h5>What's you education level?</h5>
 
+
+
   <h5>Are you interested in jobs posted over 30 days ago?</h5>
 
-  <h5>Do you need a visa to work in #{location}?</h5>
 
 <% end %>
