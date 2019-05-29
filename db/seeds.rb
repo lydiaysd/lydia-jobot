@@ -36,10 +36,12 @@ puts "Scraping jobs from indeed.co.uk"
     full_url = "https://www.indeed.co.uk#{show_url}"
     html_show = Nokogiri::HTML(open(full_url).read)
     job = Job.create!(
+
       job_title: html_show.search(".jobsearch-JobInfoHeader-title").text.strip,
       location: html_show.search(".jobsearch-InlineCompanyRating :nth-child(3)").text.strip,
       date_posted: html_show.search(".jobsearch-JobMetadataFooter").text.split('-').first,     # total_compensation: html_show.search("#salary.no-wrap").text.strip,
       description: html_show.search('.jobsearch-jobDescriptionText').text.strip
+
     )
   end
 
@@ -55,6 +57,7 @@ puts "Scraping jobs from reed.co.uk"
     full_url = "https://www.reed.co.uk#{show_url}"
     html_show = Nokogiri::HTML(open(full_url).read)
       job = Job.create!(
+
         job_title: html_show.search(".col-xs-12 h1").text.strip.gsub( /(\r\n)|(\s)/m, " " ),
         description: html_show.search(".description").text.strip.gsub( /(\r\n)|(\s)/m, " " ),
         total_compensation: compensation,
@@ -91,3 +94,4 @@ puts "Scraping monster jobs!"
   end
 
 end
+

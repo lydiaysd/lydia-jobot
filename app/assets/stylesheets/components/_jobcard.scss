@@ -1,38 +1,92 @@
-.job-card {
-  height: 120px;
-  width: 30%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
-  overflow: scroll;
-  padding: 16px 16px;
-  background-color: white;
 
+.cards {
+  height: 175px;
+  width: 44%;
+  background: white;
+  box-shadow: 3px 1px 7px rgba(134, 156, 163, 0.25);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 24px;
 }
 
-.job_img {
-  height: 100%;
+// .overlay {
+//   text-align: center;
+//   transition: .3s all;
+//   border-radius: 3px;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   width: 100%;
+//   color: #fff;
+//   opacity: 0;
+
+//   h2 {
+//     color: #61E1E0;
+//     background-color: white;
+//     border-radius: 71px;
+//     padding: 16px;
+//   }
+// }
+
+//   :hover {
+//     .overlay {
+//       opacity: 1;
+//     }
+
+//     .cards {
+//       -webkit-filter: blur(2px);
+//       filter: blur(2px);
+//     }
+// }
+
+// @media screen and (max-width: 1148px) {
+//   .cards {
+//     max-width: 48%;
+//     margin: 1%;
+//   }
+// }
+
+// @media screen and (max-width: 768px) {
+//   .cards {
+//     float: none;
+//     max-width: 80%;
+//     margin: 1% auto;
+//   }
+// }
+
+
+
+
+.default_job {
+  height: 85%;
   width: 120px;
   object-fit: cover;
 }
 
-.job-card-info h3 {
+
+.card-info {
+  margin-left: 20px;
+}
+
+.card-info h3 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
   color: #61E1E0;
 }
 
-.job-card-info h5 {
+
+.card-info h5 {
   font-size: 14px;
   font-weight: bold;
   margin: 0;
   color: #A7ACAC;
 }
 
-.job-card-info p {
+
+.card-info p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -41,6 +95,8 @@
   color: #A7ACAC;
 }
 
-.job-card .job-card-info {
-  padding: 16px;
-}
+
+// .job-card .card-info {
+//   padding: 16px;
+// }
+
