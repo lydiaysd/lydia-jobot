@@ -1,2 +1,19 @@
 <h1>Jobs#new</h1>
 <p>Find me in app/views/jobs/new.html.erb</p>
+
+<%= simple_form_for @user_skill do |f| %>
+
+  <h5>Let’s get started!</h5>
+  <h5>What programming languages do you know?</h5>
+  <%= select_tag "skills", options_from_collection_for_select(Skill.all, "id", "name"), class: 'js-example-basic-multiple', multiple: true %>
+
+  <%= f.button :submit %>
+<% end %>
+
+<%= simple_form_for @user do |f| %>
+
+  <h5>What kinda mony you fancy?</h5>
+  <%= f.input :total_compensation_goal, multiple: true %>
+  <%= f.button :submit %>
+
+<% end %>
