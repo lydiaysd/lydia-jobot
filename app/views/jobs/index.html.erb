@@ -1,13 +1,31 @@
 <h1>Jobs#index</h>
-<h2>Reed</h2>
-  <% @jobs.each do |job| %>
-    <div class="card-job">
-      <p><%= job.job_title %></p>
-      <p><%= job.location %></p>
-      <p><%= job.description %></p>
-      <p><%= job.total_compensation %></p>
-      <p><%= job.date_posted %></p>
+
+<!-- NavBar -->
+
+<div class="card-holder">
+  <div class="card-product">
+    <div class="card-product-info">
+      <% @jobs.each do |job| %>
+        <div class="card-job">
+      <!--  put code here for image from firefly project -->
+          <h3><%= job_title %></h3>
+          <h5><<%# job.location %></h5>
+            <h5><%= job.date_posted %></h5>
+          <p><%= job.total_compensation %></p>
+          <p><%# job.description.truncate(31) %></p>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+</div>
 
-
+<h2>Animated Sidenav Example</h2>
+<p>Click on the element below to open the side navigation menu.</p>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
