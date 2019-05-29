@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/new', to: 'pages#new'
   get '/welcome', to: 'pages#welcome'
   resources :user_skill
-
+  resources :guest_users
   resources :jobs do
     resources :saved_jobs, only: [:new, :create]
   end

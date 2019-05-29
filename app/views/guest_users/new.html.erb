@@ -1,0 +1,41 @@
+<div class="container">
+  <%= simple_form_for @guest_user do |f| %>
+
+    <h5>Let’s get started!</h5>
+
+    <h5>What job titles are you looking for?</h5>
+      <%= f.input :job_title, as: :select, collection: Job.all.map(&:job_title).uniq.reject(&:blank?), input_html: { class: 'js-example-basic-multiple', multiple: true } %>
+
+    <h5>Where do you want to work?</h5>
+    <%= f.input :location, as: :select, collection: Job.all.map(&:location).uniq.reject(&:blank?), input_html: { class: 'js-example-basic-multiple', multiple: true } %>
+
+    <h5>Do you need a visa to work in #{location}?</h5>
+    <%= f.input :visa_sponsor, as: :radio_buttons %>
+
+    <h5>What programming languages do you know?</h5>
+    <%= f.association :skills, as: :select, collection: Skill.all, input_html: { class: 'js-example-basic-multiple', multiple: true } %>
+
+    <h5>What human languages do you speak?</h5>
+    <%= f.association :languages, as: :select, collection: Language.all, input_html: { class: 'js-example-basic-multiple', multiple: true } %>
+
+    <h5>What's your target total compensation (full year)?</h5>
+    <div id="compensation_slider"></div>
+
+    <h5>How many years of professional experience do you have?</h5>
+
+    <div id="experience_slider"></div>
+
+    <h5>Which industries are you interested in?</h5>
+    <%= f.association :industries, as: :select, collection: Industry.all, input_html: { class: 'js-example-basic-multiple', multiple: true } %>
+
+    <h5>What's you education level?</h5>
+    <%= f.input :education_degree, as: :select, collection: @education_degrees, input_html: { class: 'js-example-basic-multiple', multiple: true } %>
+
+
+    <h5>Are you interested in jobs posted over 30 days ago?</h5>
+    <%= f.input :date_posted, as: :radio_buttons %>
+    <%= f.submit %>
+
+  <% end %>
+
+</div>
