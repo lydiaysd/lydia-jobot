@@ -26,15 +26,16 @@
         <%= image_tag 'default-job.png', class: "default_job" %>
           <div class="card-info">
             <h3><%= job.job_title.truncate(40) %></h3>
-            <h5><%= job.location.truncate(30) %></h5>
+            <h5><%# job.location.truncate(30) %></h5>
             <h5><<%= job.date_posted %></h5>
-            <p><%= job.total_compensation.truncate(35) %></p>
-            <p><%# job.description.truncate(31) %></p>
+            <p><%# job.total_compensation.truncate(35) %></p>
+            <p><%= job.description.truncate(31) %></p>
+          </div>
+          <div class="overlay">
+            <h2>View Job</h2>
           </div>
       </div>
-  <!--     <div class="overlay">
-        <h2>View Job</h2>
-      </div> -->
+
     <% end %>
   </div>
 
