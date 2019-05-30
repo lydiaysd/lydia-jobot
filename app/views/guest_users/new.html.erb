@@ -24,10 +24,14 @@
     <h5>What's your target total compensation (full year)?</h5>
     <!-- here I have to put the fields themselfs that are going to be linked to the slider -->
     <div id="compensation_slider"></div>
+    <%= f.input :total_compensation, input_html: { id: "totalCompensation" }  %>
+    <p class="d-none" id="total_compensation_lower"></p>
+    <p class="d-none" id="total_compensation_upper"></p>
 
     <h5>How many years of professional experience do you have?</h5>
     <!-- here I have to put the fields themselfs that are going to be linked to the slider -->
     <div id="experience_slider"></div>
+    <%= f.input :years_experience, input_html: { id: "yearsExperience" }  %>
 
     <h5>Which industries are you interested in?</h5>
     <%= f.association :industries, as: :select, collection: Industry.all, input_html: { class: 'js-example-basic-multiple', multiple: true } %>

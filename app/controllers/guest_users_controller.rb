@@ -16,6 +16,6 @@ class GuestUsersController < ApplicationController
   end
 
   def guest_user_params
-    params.require(:guest_user).permit(:name, :job_title, :location, :visa_sponsor, :education_degree, :employment_type, :date_posted)
+    params.require(:guest_user).permit(:name, :job_title, :location, :total_compensation, :years_experience, :visa_sponsor, :education_degree, :employment_type, :date_posted)
   end
 end
