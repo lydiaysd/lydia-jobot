@@ -46,6 +46,11 @@ body {
   text-align: center;
 }
 
+.get-started-btn:hover {
+  text-decoration:none;
+  color: white;
+}
+
 .fa-angle-down:before {
   content: "\f107";
   color: #A7ACAC;
