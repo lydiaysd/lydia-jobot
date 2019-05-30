@@ -1,6 +1,5 @@
 require "open-uri"
 require "nokogiri"
-require 'pry-byebug'
 
 Job.destroy_all
 Company.destroy_all
