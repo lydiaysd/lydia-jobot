@@ -117,3 +117,10 @@ $textShadow: rgba(black, 0.35) 1px 1px 1px;
   width: 150px;
   border-top: 1px solid gray;
 }
+
+.apply-link {
+  font-size: 35px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
