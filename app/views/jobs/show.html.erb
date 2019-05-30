@@ -1,2 +1,35 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
+<div class="show-container">
+<!--   NavBar -->
+
+<div class="display-job">
+
+  <div class="job-header">
+      <%= image_tag 'default-job.png', class: "default_job" %>
+      <div class="job-title">
+        <h2><%= @job.job_title %></h2>
+        <h3><%= @job.company %></h3>
+        <h3><%= @job.location %></h3>
+      <!--   <div class="progress--circle progress--50">
+          <div class="progress__number">50%</div>
+        </div> -->
+      </div>
+  </div>
+
+  <div class="job-details">
+    <div class="job-description">
+      <p><%= @job.description %></p>
+    </div>
+    <div class="job-actions">
+      <div class="save-job">
+        <i class="far fa-heart"> SAVE JOB</i>
+      </div>
+      <div class="apply-job">
+        <i class="fas fa-user-check"> APPLY</i>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+</div>
