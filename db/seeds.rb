@@ -167,6 +167,3 @@ puts "Scraping jobs from reed.co.uk"
 #         date_posted: date
 #       )
 #   end
-
-end
-
