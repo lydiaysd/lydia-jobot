@@ -88,6 +88,7 @@ skill = Skill.create(name: "CSS")
 
 
 puts "Scraping jobs from reed.co.uk"
+
   @url = "https://www.reed.co.uk/jobs/web-developer-jobs-in-london"
   @html_doc = Nokogiri::HTML(open(@url).read)
   @html_doc.search(".job-result").first(25).each do |element|
@@ -98,15 +99,36 @@ puts "Scraping jobs from reed.co.uk"
     full_url = "https://www.reed.co.uk#{show_url}"
     html_show = Nokogiri::HTML(open(full_url).read)
     logo = html_show.search('.logo-wrap meta').attr('content')&.value
+    company_url = html_show.search('.logo-wrap').attr('href')&.value
+
+    if company_url.match(/company-profile/)
+        company_show = Nokogiri::HTML(open("https://www.reed.co.uk#{company_url}").read)
+        company_industry = company_show.search('.information__item')
+        industry_name = company_industry.find { |e| e.search('.information__title').text.strip == "Sector" }
+        industry_name = industry_name.search('.information__description').text.strip
+        if Industry.find_by(name: industry_name)
+          industry = Industry.find_by(name: industry_name)
+        else
+          industry = Industry.new(name: industry_name)
+          industry.save
+        end
+    end
+
     company_name = html_show.search('.posted span').text.strip.capitalize
     puts "company: #{company_name}, logo: #{logo}"
+
     if Company.find_by(name: company_name)
       company = Company.find_by(name: company_name)
-    else
-      company = Company.new(name: company_name)
-      company.remote_logo_url = logo.nil? ? "https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?cs=srgb&dl=astronomy-black-wallpaper-constellation-2150.jpg&fm=jpg" : logo
-      company.save
+      else
+        company = Company.new(name: company_name)
+        company.remote_logo_url = logo.nil? ? "https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?cs=srgb&dl=astronomy-black-wallpaper-constellation-2150.jpg&fm=jpg" : logo
+        company.save
     end
+
+    if CompanyIndustry.where(company: company, industry: industry).empty? && industry
+      CompanyIndustry.create(company: company, industry: industry)
+    end
+
     puts company
     job = Job.create!(
       job_title: html_show.search(".col-xs-12 h1").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
@@ -119,32 +141,32 @@ puts "Scraping jobs from reed.co.uk"
     )
   end
 
-puts "Scraping monster jobs!"
+# puts "Scraping monster jobs!"
 
-@url_monster = "https://www.monster.co.uk/jobs/search/?q=web-developer&where=london&cy=uk&client=power"
-@html_monster = Nokogiri::HTML(open(@url_monster).read)
-@html_monster.search('.card-content').first(25).each do |element|
-  date = element.search('.meta :first-child').text
-  monster_url = element.search('.title a').attribute('href')
+# @url_monster = "https://www.monster.co.uk/jobs/search/?q=web-developer&where=london&cy=uk&client=power"
+# @html_monster = Nokogiri::HTML(open(@url_monster).read)
+# @html_monster.search('.card-content').first(25).each do |element|
+#   date = element.search('.meta :first-child').text
+#   monster_url = element.search('.title a').attribute('href')
 
-  # begin
-  # rescue URI::InvalidURIError => e
-  #   puts "Rescued: #{e.inspect}"
-  # end
+#   # begin
+#   # rescue URI::InvalidURIError => e
+#   #   puts "Rescued: #{e.inspect}"
+#   # end
 
-  unless monster_url.nil?
-    purl = element.search('.title a').attribute('href').value
-    monster_url = URI.parse(URI.encode(purl.strip))
+#   unless monster_url.nil?
+#     purl = element.search('.title a').attribute('href').value
+#     monster_url = URI.parse(URI.encode(purl.strip))
 
-    monster_doc = Nokogiri::HTML(open(monster_url).read)
-      job = Job.create!(
-        job_title: monster_doc.search('.heading :first-child').text.strip.gsub( /(\r\n)|(\s)/m, " " ),
-        description: monster_doc.search('.details-content').text.strip.gsub( /(\r\n)|(\s)/m, " " ),
-        total_compensation: monster_doc.search('.mux-job-cards').text.split.drop(1).join.gsub( /(\r\n)|(\s)/m, " " ),
-        location: monster_doc.search('.value').text.split(',').first,
-        date_posted: date
-      )
-  end
+#     monster_doc = Nokogiri::HTML(open(monster_url).read)
+#       job = Job.create!(
+#         job_title: monster_doc.search('.heading :first-child').text.strip.gsub( /(\r\n)|(\s)/m, " " ),
+#         description: monster_doc.search('.details-content').text.strip.gsub( /(\r\n)|(\s)/m, " " ),
+#         total_compensation: monster_doc.search('.mux-job-cards').text.split.drop(1).join.gsub( /(\r\n)|(\s)/m, " " ),
+#         location: monster_doc.search('.value').text.split(',').first,
+#         date_posted: date
+#       )
+#   end
 
 end
 

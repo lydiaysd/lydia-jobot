@@ -3,7 +3,10 @@
 
     <h5>Let’s get started!</h5>
 
-    <h5>What job titles are you looking for?</h5>
+    <h5>What your name?</h5>
+    <%= f.input :name, as: :string %>
+
+    <h5>Ok #{name}, what job titles are you looking for?</h5>
       <%= f.input :job_title, as: :select, collection: Job.all.map(&:job_title).uniq.reject(&:blank?), input_html: { class: 'js-example-basic-multiple', multiple: true } %>
 
     <h5>Where do you want to work?</h5>
@@ -19,11 +22,16 @@
     <%= f.association :languages, as: :select, collection: Language.all, input_html: { class: 'js-example-basic-multiple', multiple: true } %>
 
     <h5>What's your target total compensation (full year)?</h5>
+    <!-- here I have to put the fields themselfs that are going to be linked to the slider -->
     <div id="compensation_slider"></div>
+    <%= f.input :total_compensation, input_html: { id: "totalCompensation" }  %>
+    <p class="d-none" id="total_compensation_lower"></p>
+    <p class="d-none" id="total_compensation_upper"></p>
 
     <h5>How many years of professional experience do you have?</h5>
-
+    <!-- here I have to put the fields themselfs that are going to be linked to the slider -->
     <div id="experience_slider"></div>
+    <%= f.input :years_experience, input_html: { id: "yearsExperience" }  %>
 
     <h5>Which industries are you interested in?</h5>
     <%= f.association :industries, as: :select, collection: Industry.all, input_html: { class: 'js-example-basic-multiple', multiple: true } %>
@@ -31,10 +39,12 @@
     <h5>What's you education level?</h5>
     <%= f.input :education_degree, as: :select, collection: @education_degrees, input_html: { class: 'js-example-basic-multiple', multiple: true } %>
 
+    <h5>What type of employment are you looking for?</h5>
+    <%= f.input :employment_type, as: :select, collection: Job.all.map(&:employment_type).uniq.reject(&:blank?), input_html: { class: 'js-example-basic-multiple', multiple: true } %>
 
     <h5>Are you interested in jobs posted over 30 days ago?</h5>
     <%= f.input :date_posted, as: :radio_buttons %>
-    <%= f.submit %>
+    <%= f.submit "Finish" %>
 
   <% end %>
 
