@@ -11,5 +11,17 @@ const initSlider = (elementId) => {
       }
   });
 }
-
+const initRangeSlider = (elementId) => {
+  const rangeSlider = document.getElementById(elementId);
+  noUiSlider.create(rangeSlider, {
+    start: 1,
+    behaviour: 'tap',
+    connect: [false, true],
+    range: {
+        'min': 0,
+        'max': 50
+    }
+});
+}
 export { initSlider }
+export { initRangeSlider }
