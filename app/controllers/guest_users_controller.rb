@@ -1,12 +1,15 @@
 class GuestUsersController < ApplicationController
   before_action :education_degrees
+  skip_before_action :authenticate_user!, only: [:new, :create]
+
   def new
     @guest_user = GuestUser.new
   end
 
   def create
-    @guest_user = GuestUser.new(guest_user_params)
+    @guest_user = GuestUser.create(guest_user_params)
     session[:guest_user_id] = @guest_user.id
+    redirect_to new_user_registration_path
   end
 
   private

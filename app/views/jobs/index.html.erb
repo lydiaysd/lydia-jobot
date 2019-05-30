@@ -32,7 +32,7 @@
             <p><%= job.description.truncate(40) %></p>
           </div>
           <div class="overlay">
-            <a href="job_path">View Job</a>
+            <%= link_to 'View', job_path(job) %>
           </div>
       </div>
 
