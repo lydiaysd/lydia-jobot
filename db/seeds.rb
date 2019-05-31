@@ -22,6 +22,27 @@ Company.destroy_all
 # Doctor of Medicine (M.D.)
 # Doctor of Dental Surgery (DDS)
 
+
+
+# Marketing Technologist
+# SEO Consultant
+# Web Analytics Developer
+# Digital Marketing Manager
+# Social Media Manager
+# Growth Hacker
+# Content Manager
+# Content Strategist
+# Information Architect
+# UX Designer
+# UI Designer
+# Accessibility Specialist
+# Interaction Designer
+# Front-End Designer
+# Front-End Developer
+
+
+
+
 Language.destroy_all
 
 language = Language.create(name: "Chinese")
