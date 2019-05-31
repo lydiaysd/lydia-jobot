@@ -30,7 +30,7 @@
             <h5><%# job.location.truncate(30) %></h5>
             <h5><%= job.date_posted %></h5>
             <p><%# job.total_compensation.truncate(35) %></p>
-            <p><%= job.description.truncate(40) %></p>
+            <p><%= job.description.truncate(50) %></p>
           </div>
           <div class="overlay">
             <%= link_to 'View Job', job_path(job) %>
