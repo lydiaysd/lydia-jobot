@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  after_action :merge_users, only: [:create, :new]
+  after_action :merge_users, only: [:create]
 
   def merge_users
     return if session[:guest_user_id].nil? || GuestUser.find_by(id: session[:guest_user_id]).nil?
