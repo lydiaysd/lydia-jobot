@@ -1,0 +1,7 @@
+<%=  simple_form_for @user do |f| %>
+  <div class="container-form">
+    <%= f.input :job_title %>
+    <%= f.input :location %>
+    <%= f.input :visa_sponsor, as: :radio_buttons %>
+  </div>
+<% end %>
