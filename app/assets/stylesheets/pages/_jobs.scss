@@ -1,10 +1,35 @@
 .index-container {
   height: 100vh;
+  display: flex;
 }
 
 .navbar {
   background-color: white;
   border-bottom: 1px solid #A7ACAC;
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.index-body {
+  width: 90%;
+}
+
+.sidebar-nav {
+  background-color: rgba(97, 225, 224, 0.09);
+  width: 69px;
+  color: #B3B0A9;
+  border-right: 1px solid #A7ACAC;
+  display: flex;
+  justify-content: center;
+}
+
+.fa-sliders-h:before {
+  content: "\f1de";
+  font-size: 26px;
+  color: #A7ACAC;
 }
 
 
@@ -20,7 +45,9 @@
     font-weight: 500;
     margin-left: 1px;
     margin-top: 50px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #A7ACAC;
+    margin-right: 1px;
   }
 }
 

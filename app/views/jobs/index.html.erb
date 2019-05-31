@@ -2,17 +2,18 @@
 <div class="index-container">
 <!-- NavBar -->
 
-
-<!-- <p>Animated Sidenav Example</p>
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+<div class="sidebar-nav">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()"><i class="fas fa-sliders-h"></i></i></span>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
 </div>
- -->
+
+<div class="index-body">
 
 <div class="header-text">
   <h2> JoBot found these <strong><%= @jobs.count %></strong> jobs for you!</h2>
@@ -32,7 +33,7 @@
             <p><%= job.description.truncate(40) %></p>
           </div>
           <div class="overlay">
-            <%= link_to 'View', job_path(job) %>
+            <%= link_to 'View Job', job_path(job) %>
           </div>
       </div>
 
@@ -44,6 +45,7 @@
   <div class="down-arrow-click">
     <a href="#"><i class="fa fa-angle-down"></i></a>
   </div>
+</div>
 
 <!-- container end div -->
 </div>
