@@ -7,6 +7,7 @@ class GuestUsersController < ApplicationController
   end
 
   def create
+    raise
     @guest_user = GuestUser.create(guest_user_params)
     session[:guest_user_id] = @guest_user.id
     redirect_to new_user_registration_path
