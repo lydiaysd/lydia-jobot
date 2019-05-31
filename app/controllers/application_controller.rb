@@ -12,4 +12,9 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     jobs_path
   end
+
+  def default_url_options
+  { host: ENV["jobot.pro"] || "localhost:3000" }
+  end
+
 end
