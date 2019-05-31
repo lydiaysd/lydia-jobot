@@ -39,6 +39,22 @@ Company.destroy_all
 # Interaction Designer
 # Front-End Designer
 # Front-End Developer
+# Mobile Developer
+# Full-Stack Developer
+# Software Developers
+# WordPress Developer
+# Frameworks Specialist
+# Ruby on Rails Developer
+# Python Developer
+# Business Systems Analyst
+# Systems Engineer
+# Systems Administrator
+# Database Administrator
+# Data Architect
+# Data Modeler
+# Data Analyst
+# Data Scientist
+
 
 
 
@@ -157,7 +173,8 @@ puts "Scraping jobs from reed.co.uk"
       location: html_show.search('.location span[data-qa="localityLbl"]').text.strip.gsub( /(\r\n)|(\s)/m, "" ),
       employment_type: html_show.search(".time").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
       date_posted: Date.parse(html_show.search('.posted meta').attr('content')&.value),
-      company: company
+      company: company,
+      url: full_url
     )
   end
 

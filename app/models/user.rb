@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -11,4 +13,15 @@ class User < ApplicationRecord
   has_many :jobs, through: :saved_jobs
   has_many :user_languages
   has_many :languages, through: :user_languages
+
+  def reject_unavailable_saved_jobs
+    saved_jobs.map(&:job).reject do |job|
+      begin
+        open(job.url)
+        return false
+      rescue => e
+        return true
+      end
+    end
+  end
 end
