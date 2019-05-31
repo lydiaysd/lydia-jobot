@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  after_action :merge_users, only: [:create]
+  after_action :merge_users, only: [:create, :new]
 
   def merge_users
     @guest_user = GuestUser.find(session[:guest_user_id])

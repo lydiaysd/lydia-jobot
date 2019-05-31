@@ -114,13 +114,13 @@ puts "Scraping jobs from reed.co.uk"
     end
 
     company_name = html_show.search('.posted span').text.strip.capitalize
-    puts "company: #{company_name}, logo: #{logo}"
+    "company: #{company_name}, logo: #{logo}"
 
     if Company.find_by(name: company_name)
       company = Company.find_by(name: company_name)
       else
         company = Company.new(name: company_name)
-        company.remote_logo_url = logo.nil? ? "https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?cs=srgb&dl=astronomy-black-wallpaper-constellation-2150.jpg&fm=jpg" : logo
+        company.remote_logo_url = logo.nil? ? './app/assets/images/default-robot.png' : logo
         company.save
     end
 
@@ -128,7 +128,7 @@ puts "Scraping jobs from reed.co.uk"
       CompanyIndustry.create(company: company, industry: industry)
     end
 
-    puts company
+    company
     job = Job.create!(
       job_title: html_show.search(".col-xs-12 h1").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
       description: html_show.search(".description").text.strip,
