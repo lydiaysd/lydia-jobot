@@ -23,7 +23,7 @@
 
     <% @jobs.each do |job| %>
       <div class="cards">
-        <%= image_tag 'default-job.png', class: "default_job" %>
+        <%= cl_image_tag job.company.logo, class: 'm-2' %>
           <div class="card-info">
             <h3><%= job.job_title.truncate(25) %></h3>
             <h5><%# job.location.truncate(30) %></h5>
