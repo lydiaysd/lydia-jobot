@@ -11,7 +11,11 @@ class UsersController < ApplicationController
   def update
     @skillz = params[:user][:skill_ids].map { |skill|  Skill.find(skill) if skill != "" }
     @user.skills = @skillz.compact
-    @user = User.update(set_params)
+    @languagez = params[:user][:language_ids].map { |language| Language.find(language) if language != "" }
+    @user.languages = @languagez.compact
+    @degreez = params[:user][:education_degree] - [""]
+    @user.education_degree = @degreez
+    @user.update(set_params)
     redirect_to jobs_path
   end
 
@@ -25,7 +29,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :name, :job_title, :location, :total_compensation,
       :years_experience, :education_degree, :visa_sponsor,
-      :date_posted, :employment_type, :user_skills
+      :date_posted, :employment_type, :user_skills, :user_languages
     )
   end
 
