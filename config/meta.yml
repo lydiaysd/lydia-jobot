@@ -1,0 +1,5 @@
+meta_product_name: "JoBot"
+meta_title: "JoBot - Bringing you jobs from across the web"
+meta_description: "JoBot searches the web for jobs so you don't have to"
+meta_image: "default-robot.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards

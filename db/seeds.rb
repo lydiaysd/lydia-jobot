@@ -1,6 +1,5 @@
 require "open-uri"
 require "nokogiri"
-require 'pry-byebug'
 
 Job.destroy_all
 Company.destroy_all
@@ -22,6 +21,27 @@ Company.destroy_all
 # Juris Doctor (J.D.)
 # Doctor of Medicine (M.D.)
 # Doctor of Dental Surgery (DDS)
+
+
+
+# Marketing Technologist
+# SEO Consultant
+# Web Analytics Developer
+# Digital Marketing Manager
+# Social Media Manager
+# Growth Hacker
+# Content Manager
+# Content Strategist
+# Information Architect
+# UX Designer
+# UI Designer
+# Accessibility Specialist
+# Interaction Designer
+# Front-End Designer
+# Front-End Developer
+
+
+
 
 Language.destroy_all
 
@@ -115,13 +135,13 @@ puts "Scraping jobs from reed.co.uk"
     end
 
     company_name = html_show.search('.posted span').text.strip.capitalize
-    puts "company: #{company_name}, logo: #{logo}"
+    "company: #{company_name}, logo: #{logo}"
 
     if Company.find_by(name: company_name)
       company = Company.find_by(name: company_name)
       else
         company = Company.new(name: company_name)
-        company.remote_logo_url = logo.nil? ? "https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?cs=srgb&dl=astronomy-black-wallpaper-constellation-2150.jpg&fm=jpg" : logo
+        company.remote_logo_url = logo.nil? ? './app/assets/images/default-robot.png' : logo
         company.save
     end
 
@@ -129,7 +149,7 @@ puts "Scraping jobs from reed.co.uk"
       CompanyIndustry.create(company: company, industry: industry)
     end
 
-    puts company
+    company
     job = Job.create!(
       job_title: html_show.search(".col-xs-12 h1").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
       description: html_show.search(".description").text.strip,
@@ -167,6 +187,3 @@ puts "Scraping jobs from reed.co.uk"
 #         date_posted: date
 #       )
 #   end
-
-end
-

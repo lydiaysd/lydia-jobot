@@ -9,6 +9,7 @@
   flex-wrap: wrap;
   margin: 24px;
   position: relative;
+  border-radius: 8px;
   &:hover {
     .overlay {
       opacity: 1;
@@ -24,11 +25,12 @@
   }
 }
 
+
 .overlay {
-  transition: .3s all;
+  transition: 1s all;
   border-radius: 3px;
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -47,7 +49,7 @@
     margin: 0;
     background-color: #61E1E0;
     border-radius: 8px;
-    padding: 8px 16px;
+    padding: 18px 24px;
     opacity: 0.80;
     text-decoration: none;
   }
@@ -83,16 +85,23 @@
 }
 
 .card-info h3 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   margin: 0;
   color: #61E1E0;
+  line-height: unset;
 }
 
 
 .card-info h5 {
   font-size: 14px;
   font-weight: bold;
+  margin: 0;
+  color: #A7ACAC;
+}
+
+.card-info h6 {
+  font-size: 11px;
   margin: 0;
   color: #A7ACAC;
 }
@@ -105,6 +114,10 @@
   margin-bottom: 0;
   margin-top: 8px;
   color: #A7ACAC;
+}
+
+.header-text strong {
+  color: #61E1E0;
 }
 
 

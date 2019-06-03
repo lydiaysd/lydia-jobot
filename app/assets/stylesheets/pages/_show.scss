@@ -11,12 +11,24 @@ $textShadow: rgba(black, 0.35) 1px 1px 1px;
   justify-content: space-around;
 }
 
+.navbar {
+  background-color: white;
+  border-bottom: 1px solid #A7ACAC;
+  justify-content: space-between;
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+}
+
 .display-job {
   height:80%;
   width: 80%;
   margin-top: 60px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   background-color: white;
+  margin-left: 68px;
 }
 
 .job-header {
@@ -116,4 +128,11 @@ $textShadow: rgba(black, 0.35) 1px 1px 1px;
   padding: 16px;
   width: 150px;
   border-top: 1px solid gray;
+}
+
+.apply-link {
+  font-size: 35px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }

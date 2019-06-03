@@ -7,6 +7,7 @@ import 'nouislider/distribute/nouislider.css';
 import { initSlider } from '../components/init_slider';
 import { initOneHandleSlider } from '../components/init_slider';
 import { initSelect2 } from '../components/init_select2';
+import '../components/jobot'
 
 initSelect2('select2');
 initSelect2('js-example-basic-multiple');

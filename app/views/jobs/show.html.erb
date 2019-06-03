@@ -7,8 +7,8 @@
       <%= image_tag 'default-job.png', class: "default_job" %>
       <div class="job-title">
         <h2><%= @job.job_title %></h2>
-        <h3><%= @job.company %></h3>
-        <h3><%= @job.location %></h3>
+        <h3><%= @job.company.name.titleize %></h3>
+        <h3><%= @job.location.gsub(/(?<=[a-z])(?=[A-Z])/, ' ') %></h3>
       <!--   <div class="progress--circle progress--50">
           <div class="progress__number">50%</div>
         </div> -->
@@ -25,6 +25,13 @@
       </div>
       <div class="apply-job">
         <i class="fas fa-user-check"> APPLY</i>
+        <br>
+        <br>
+        <br>
+        <div class="apply-link">
+          <i class="fab fa-angellist"></i>
+          <a href="https://www.linkedin.com/jobs/view/web-developer-at-viqu-1291286515/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic&originalSubdomain=uk"> <i class="fab fa-linkedin"></i>
+        </div>
       </div>
     </div>
   </div>
