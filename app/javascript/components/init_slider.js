@@ -36,7 +36,7 @@ const initSlider = (elementId) => {
 const initOneHandleSlider = (elementId) => {
   const oneHandleSlider = document.getElementById(elementId);
   noUiSlider.create(oneHandleSlider, {
-    start: 1,
+    start: document.querySelector('.years_experience').innerHTML,
     behaviour: 'tap',
     connect: [true, false],
     range: {

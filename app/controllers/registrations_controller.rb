@@ -1,3 +1,4 @@
+
 class RegistrationsController < Devise::RegistrationsController
   after_action :merge_users, only: [:create]
 
