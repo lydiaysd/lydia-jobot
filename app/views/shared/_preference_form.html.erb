@@ -4,4 +4,26 @@
     <%= f.input :location %>
     <%= f.input :visa_sponsor, as: :radio_buttons %>
   </div>
+  <div>
+    <%= f.association :skills, as: :select, collection: Skill.all, input_html: { class: 'js-example-basic-multiple', multiple: true } %>
+    <%= f.association :languages, as: :select, collection: Language.all, input_html: { class: 'js-example-basic-multiple', multiple: true } %>
+  </div>
+
+  <div>
+    <div id="compensation_slider"></div>
+      <%= f.input :total_compensation, input_html: { id: "totalCompensation" }  %>
+      <p class="d-none" id="total_compensation_lower"></p>
+      <p class="d-none" id="total_compensation_upper"></p>
+
+    <div id="experience_slider" class='bot-div'></div>
+    <%= f.input :years_experience, input_html: { id: "yearsExperience" }  %>
+
+    <%#= f.association :industries, as: :select, collection: Industry.all, input_html: { class: 'js-example-basic-multiple', multiple: true } %>
+
+    <%= f.input :education_degree, as: :select, collection: @education_degrees, input_html: { class: 'js-example-basic-multiple', multiple: true, } %>
+    <%= f.input :employment_type, as: :select, collection: Job.all.map(&:employment_type).uniq.reject(&:blank?), input_html: { class: 'js-example-basic-multiple', multiple: true } %>
+
+    <%= f.input :date_posted, as: :radio_buttons %>
+    <%= f.submit "Finish" %>
+  </div>
 <% end %>
