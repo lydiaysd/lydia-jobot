@@ -32,10 +32,11 @@ $(function() {
   console.log('mages');
   if (images) {
   var counter = 0;
+  changeImage(counter)
 
   // Start the changing images
   setInterval(function() {
-    if(counter == images.length-1) {
+    if(counter == images.length) {
       counter = 0;
     }
 
