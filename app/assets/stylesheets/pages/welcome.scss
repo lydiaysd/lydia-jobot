@@ -60,7 +60,9 @@
 }
 
 .jobot-speech {
-  padding: 50px 300px;
+  padding: 50px;
+  width: 600px;
+  height: 200px;
   position: relative;
   background: rgba(0,0,0,0.1);
   border-radius: 15px;
@@ -87,24 +89,33 @@
 }
 
 .jobot-speech-user {
-  padding: 50px 100px;
+  padding: 50px;
+  width: 600px;
+  height: 200px;
   position: relative;
   background: rgba(0,0,0,0.1);
   border-radius: 15px;
   margin: 60px 0;
+  text-align: center;
   input {
     width: 500px;
-    height: 60px;
+    height: 36px;
     font-size: 30px;
-    color: rgba(0,0,0,0.3);
+    color: rgba(0,0,0,0.2);
+    background: transparent;
+  }
+  ::placeholder {
+    color: rgba(0,0,0,0.2);
+    text-align: center;
     background: transparent;
   }
 }
 
 .jobot-robot-chat {
   position: absolute;
-  left: 0;
+  left:  -120px;
   top: 20%;
+
 }
 
 .jobot-speech-user:after {
@@ -122,5 +133,42 @@
   margin-bottom: -20px;
 }
 
+#new_guest_user {
+  position: relative
+}
 
+.js-example-basic-multiple {
+  background-color: transparent;
+  width: 500px;
+}
+.select2 .select2-container--default .select2-selection--multiple .select2-selection__choice {
+  background-color: transparent;
+  font-family: "Montserrat";
+  font-size: 30px;
+  color: rgba(0,0,0,0.2);
+  text-align: center;
+}
 
+.select2 .select2-container--default.select2-container--focus .select2-selection--multiple {
+  background-color: transparent;
+}
+
+.radio-btn {
+  width: 200px !important;
+}
+
+.radio-btn-container {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  .form-check {
+    display: flex !important;
+    width: 150px;
+  }
+  label {
+    font-size: 30px;
+    color: rgba(0,0,0,0.2);
+  }
+}

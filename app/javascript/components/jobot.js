@@ -25,10 +25,10 @@ const botScript = (e) => {
     })
     if(div.id === 'bot-start') {
       const name = e.currentTarget.value
-      nextDiv.firstElementChild.innerText = `Ok ${name}, what job titles are you looking for`
+      nextDiv.firstElementChild.innerHTML = `<h5>Ok ${name}, what job titles are you looking for</h5>`
     } else if (div.id === 'bot-location') {
       const location = e.currentTarget.value
-      nextDiv.firstElementChild.innerText = `Do you need a visa to work in ${location}?`
+      nextDiv.firstElementChild.innerHTML = `<h5>Do you need a visa to work in ${location}?</h5>`
     }
   }
 }
