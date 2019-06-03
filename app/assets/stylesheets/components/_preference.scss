@@ -1,7 +1,12 @@
 .input {
   display: inline-block;
   padding: 16px;
+  border-radius: 4px;
+  line-height: 2;
+}
 
+#user-job-title {
+  border-radius: 4px;
 }
 
 .form-check {
@@ -26,4 +31,8 @@ label {
 
 .form-box {
   width: 169px;
+}
+
+#user-location {
+
 }

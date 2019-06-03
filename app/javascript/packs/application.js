@@ -11,7 +11,7 @@ import '../components/jobot'
 
 initSelect2('select2');
 initSelect2('js-example-basic-multiple');
-initSlider('compensation_slider');
+// initSlider('compensation_slider');
 initOneHandleSlider('experience_slider');
 
 // import { initAutocomplete } from '../plugins/init_autocomplete';

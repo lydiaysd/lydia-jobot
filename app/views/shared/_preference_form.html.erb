@@ -1,7 +1,7 @@
 <%=  simple_form_for @user do |f| %>
   <div class="container-form">
-    <%= f.input :job_title %>
-    <%= f.input :location %>
+    <%= f.input :job_title, class: 'rounded' %>
+    <%= f.input :location, class: 'form-input' %>
     <%= f.input :visa_sponsor, as: :radio_buttons %>
   </div>
   <div>
@@ -10,17 +10,14 @@
   </div>
 
   <div>
-    <div id="compensation_slider" class="m-4"></div>
-      <%= f.input :total_compensation, input_html: { id: "totalCompensation" }  %>
-      <p class="d-none" id="total_compensation_lower"></p>
-      <p class="d-none" id="total_compensation_upper"></p>
 
-    <div id="experience_slider" class='m-4'></div>
+    <%= f.input :total_compensation, label: "Compensation (e.g. 28,000) £", as: :string %>
+
+    <div id="experience_slider" class="m-4" ></div>
     <%= f.input :years_experience, input_html: { id: "yearsExperience" }  %>
 
-    <%#= f.association :industries, as: :select, collection: Industry.all, input_html: { class: 'js-example-basic-multiple', multiple: true } %>
-
     <%= f.input :education_degree, as: :select, collection: @education_degrees, input_html: { class: 'js-example-basic-multiple form-box', multiple: true, } %>
+
     <%= f.input :employment_type, as: :select, collection: Job.all.map(&:employment_type).uniq.reject(&:blank?), input_html: { class: 'js-example-basic-multiple', multiple: true } %>
 
     <%= f.input :date_posted, label: "Post over 30 days old?", as: :radio_buttons %>
