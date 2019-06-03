@@ -1,59 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=eduge">
-  <title>LANDING</title>
-  <link rel="stylesheet" href="style.scss">
-</head>
-
-<body>
-  <div class="container">
-    <div class="home">
-      <img  class="wave" alt="" src="https://media.giphy.com/media/f955el55GbRTMJGko4/giphy.gif">
-        <div class="home-text">
-          <h1>JoBot</h1>
-          <p>Bringing you jobs from across the web</p>
-          <a href="#chat_path" class="get-started-btn">Get Started</a>
-          <hr>
-          <a href="#about-section" ><i class="fa fa-angle-down"></i> </a>
-        </div>
-    </div>
-
-    <div class="about-section" id="about-section">
-        <div>
-          <h1>How it Works</h1>
-        </div>
-      <div class="about-section-cards">
-        <div class="about-card">
-          <p>Tell JoBot about yourself</p>
-          <img class="head-tilt" alt="" src="https://media.giphy.com/media/H1e0K8rGFhgplPHPNt/giphy.gif">
-        </div>
-        <div class="about-card">
-          <p>JoBot searches the web to find the best jobs for you</p>
-            <div class="job-icons">
-              <%= image_tag 'indeed.png', class: "job_icon" %>
-              <%= image_tag 'monster.png', class: "job_icon" %>
-              <%= image_tag 'linkedin.png', class: "job_icon" %>
-              <hr>
-              <%= image_tag 'reed.png', class: "job_icon" %>
-              <%= image_tag 'angellist.png', class: "job_icon" %>
-              <%= image_tag 'craigslist.png', class: "job_icon" %>
-            </div>
-        </div>
-        <div class="about-card">
-          <p>Apply to jobs immediately, or save and apply later!</p>
-          <%= image_tag 'google-card.png', class: "job_card_example" %>
-        </div>
-       </div>
-      <div>
-        <a href="#chat_path">Get Started</a>
+<div class="home-container">
+  <div class="home">
+    <img  class="wave" alt="" src="https://media.giphy.com/media/f955el55GbRTMJGko4/giphy.gif">
+      <div class="home-text">
+        <h1>JoBot</h1>
+        <p>Bringing you jobs from across the web</p>
+        <a href="welcome" class="get-started-btn">Get Started</a>
+        <hr>
+        <a href="#about-section" ><i class="fa fa-angle-down"></i> </a>
       </div>
-    </div>
-
   </div>
 
+  <div class="about-section" id="about-section">
+      <div>
+        <h1>How it Works</h1>
+      </div>
+    <div class="about-section-cards">
+      <div class="about-card">
+        <p>Tell JoBot about yourself</p>
+        <img class="head-tilt" alt="" src="https://media.giphy.com/media/H1e0K8rGFhgplPHPNt/giphy.gif">
+      </div>
+      <div class="about-card">
+        <p>JoBot searches the web to find the best jobs for you</p>
+          <div class="job-icons">
+            <%= image_tag 'indeed.png', class: "job_icon" %>
+            <%= image_tag 'monster.png', class: "job_icon" %>
+            <%= image_tag 'linkedin.png', class: "job_icon" %>
+            <hr>
+            <%= image_tag 'reed.png', class: "job_icon" %>
+            <%= image_tag 'angellist.png', class: "job_icon" %>
+            <%= image_tag 'craigslist.png', class: "job_icon" %>
+          </div>
+      </div>
+      <div class="about-card">
+        <p>Apply to jobs immediately, or save and apply later!</p>
+        <%= image_tag 'google-card.png', class: "job_card_example" %>
+      </div>
+     </div>
+    <div>
+      <a href="welcome">Get Started</a>
+    </div>
+  </div>
+</div>
 
-</body>
-</html>

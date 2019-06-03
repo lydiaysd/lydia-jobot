@@ -39,7 +39,7 @@
   align-items: center;
   justify-content: center;
 
-  h2 {
+  a {
     color: white;
     font-size: 50px;
     font-weight: 600;
@@ -49,6 +49,7 @@
     border-radius: 8px;
     padding: 8px 16px;
     opacity: 0.80;
+    text-decoration: none;
   }
 }
 

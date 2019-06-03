@@ -1,25 +1,30 @@
-<h2>Sign up</h2>
+<h2 class="login-h text-center m-3">Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+<div class="form-container">
+
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
+      <div class="form-inputs">
+        <div class="panel-header">
+            <div class="tab-active">
+              <%= link_to 'Sign Up', new_user_registration_path, class: "register-form-link" %>
+            </div>
+            <div class="tab">
+              <%= link_to 'Login', new_user_session_path, class: "register-form-link" %>
+            </div>
+        </div>
+        <div class="input email optional user_email"><label class="email optional" for="user_email"></label><input autocomplete="email" class="line string email optional" autofocus="autofocus" type="email" placeholder="Email*" value="" name="user[email]" id="user_email"></div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+        <div class="input password optional user_password"><label class="password optional" for="user_password"></label><input autocomplete="current-password" class="line password optional mb-3" type="password" name="user[password]" id="user_password" placeholder="Password*"></div>
 
-<%= render "devise/shared/links" %>
+        <fieldset class="form-group boolean optional user_remember_me">
+          <div class="form-check"><input name="user[remember_me]" type="hidden" value="0"><input class="form-check-input boolean optional" type="checkbox" value="1" name="user[remember_me]" id="user_remember_me"><label class="form-check-label boolean optional" for="user_remember_me">Remember me</label></div></fieldset>
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up", class: "singup-btn" %>
+        </div>
+  <% end %>
+      </div>
+</div>
+

@@ -1,37 +1,35 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=eduge">
-  <title>LANDING</title>
-  <link rel="stylesheet" href="style.scss">
-</head>
+<div class="show-container">
+<!--   NavBar -->
 
-<body>
-  <div class="container">
-    <div class="home">
-      <img  class="" alt="" src=""f">
-        <div class="home-text">
-          <h1>JoBot</h1>
-          <p></p>
-          <a href="#chat_path" class="get-started-btn">Get Started</a>
-          <hr>
-          <a href="#about-section" ><i class="fa fa-angle-down"></i> </a>
-        </div>
-    </div>
-<div class="welcome">
-  <div class="holder">
-    <div class="hello">
-      <h5>
-       Cool! I’ll find the best jobs for you! <br><br> But since I can’t read minds [yet], I need some info from your side
-      </h5>
-    </div>
-    <%= image_tag 'speech', class: 'triangle' %>
-    <img class="hello-robot" src="" alt="jobot">
+<div class="display-job">
+
+  <div class="job-header">
+      <%= image_tag 'default-job.png', class: "default_job" %>
+      <div class="job-title">
+        <h2><%= @job.job_title %></h2>
+        <h3><%= @job.company %></h3>
+        <h3><%= @job.location %></h3>
+      <!--   <div class="progress--circle progress--50">
+          <div class="progress__number">50%</div>
+        </div> -->
+      </div>
   </div>
+
+  <div class="job-details">
+    <div class="job-description">
+      <p><%= @job.description %></p>
+    </div>
+    <div class="job-actions">
+      <div class="save-job">
+        <i class="far fa-heart"> SAVE JOB</i>
+      </div>
+      <div class="apply-job">
+        <i class="fas fa-user-check"> APPLY</i>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 
+</div>
