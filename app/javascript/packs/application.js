@@ -16,3 +16,55 @@ initOneHandleSlider('experience_slider');
 
 // import { initAutocomplete } from '../plugins/init_autocomplete';
 // initAutocomplete();
+
+// DOWN ARROW INDEX PAGE
+
+$(function() {
+  $('a[href*=#]').on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+  });
+});
+
+// LOADING PAGE JS BELOW
+
+
+  console.log('mages');
+  if (images) {
+  var counter = 0;
+
+  // Start the changing images
+  setInterval(function() {
+    if(counter == images.length-1) {
+      counter = 0;
+    }
+
+    changeImage(counter);
+    counter++;
+  }, 4000);
+
+  // // Set the percentage off
+  // loading();
+}
+;
+
+function changeImage(counter) {
+  document.querySelector(".loading-message").innerHTML=images[counter]
+}
+
+// function loading(){
+//   var num = 0;
+
+//   for(i=0; i<=100; i++) {
+//     setTimeout(function() {
+//       $('.loader span').html(num+'%');
+
+//       if(num == 100) {
+//         loading();
+//       }
+//       num++;
+//     },i*120);
+//   };
+
+
+

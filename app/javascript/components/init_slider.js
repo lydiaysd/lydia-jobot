@@ -2,6 +2,8 @@ import noUiSlider from 'nouislider';
 
 const initSlider = (elementId) => {
   const slider = document.getElementById(elementId);
+  if (slider) {
+
   noUiSlider.create(slider, {
       start: [100000, 900000],
       connect: true,
@@ -29,12 +31,15 @@ const initSlider = (elementId) => {
       snapValues[handle].innerHTML = values[handle];
       totalCompensation.value = `${snapValues[0].innerHTML}-${snapValues[1].innerHTML}`
   });
+  }
 }
 
 
 
 const initOneHandleSlider = (elementId) => {
   const oneHandleSlider = document.getElementById(elementId);
+  if (oneHandleSlider) {
+
   noUiSlider.create(oneHandleSlider, {
     start: 1,
     behaviour: 'tap',
@@ -52,6 +57,7 @@ const initOneHandleSlider = (elementId) => {
     // priceSliderText.innerHTML = '£' + currentPrice;
     yearsExperience.value = years;
   });
+  }
 }
 export { initSlider }
 export { initOneHandleSlider }
