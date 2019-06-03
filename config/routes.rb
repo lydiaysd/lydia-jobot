@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/new', to: 'pages#new'
   get '/welcome', to: 'pages#welcome'
+  get '/loading', to: 'pages#loading'
   resources :user_skill
   resources :guest_users
   resources :jobs do
