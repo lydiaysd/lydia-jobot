@@ -42,7 +42,7 @@ $(function() {
 
     changeImage(counter);
     counter++;
-  }, 4000);
+  }, 3500);
 
   // // Set the percentage off
   // loading();
