@@ -7,6 +7,14 @@ class Job < ApplicationRecord
   has_many :languages, through: :job_languages
   belongs_to :company
 
+
+  include PgSearch
+    pg_search_scope :search_by_description,
+      against: [ :description ],
+      using: {
+        tsearch: { prefix: true } # <-- now `superman batm` will return something!
+      }
+
   def score(user)
     score = 0
     score += 1 if job_title =~ /#{user.job_title}/
@@ -18,7 +26,7 @@ class Job < ApplicationRecord
     score += 1 if date_posted =~ /#{user.date_posted}/
     score += 1 if employment_type =~ /#{user.employment_type}/
     score += 1 if skills =~ /#{user.skills}/
-    score += 1 if languages =~ /#{user.languages}/
+    score += 1 if languages =~ /#{self.search_by_description(user.languages)}/
     score += 1 if company.industries =~ /#{user.industries}/
     score
   end
