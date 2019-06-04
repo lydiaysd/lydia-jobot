@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.5.3'
 
 gem 'country_select'
+gem 'pg_search'
 
 gem 'bootsnap', require: false
 gem 'devise'
