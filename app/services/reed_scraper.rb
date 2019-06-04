@@ -15,7 +15,7 @@ class ReedScraper
       html_show = Nokogiri::HTML(open(full_url).read)
       logo = html_show.search('.logo-wrap meta').attr('content')&.value
       company_url = html_show.search('.logo-wrap').attr('href')&.value
-      if company_url.match(/company-profile/)
+      if company_url && company_url.match(/company-profile/)
         company_show = Nokogiri::HTML(open("https://www.reed.co.uk#{company_url}").read)
         company_industry = company_show.search('.information__item')
         industry_name = company_industry.find { |e| e.search('.information__title').text.strip == "Sector" }
