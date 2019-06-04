@@ -38,10 +38,13 @@ const initSlider = (elementId) => {
 
 const initOneHandleSlider = (elementId) => {
   const oneHandleSlider = document.getElementById(elementId);
+  let startYear = 0
+  if(document.querySelector('.years_experience') != null) {
+    startYear = document.querySelector('.years_experience').innerHTML;
+  }
   if (oneHandleSlider) {
-
   noUiSlider.create(oneHandleSlider, {
-    start: document.querySelector('.years_experience').innerHTML,
+    start: startYear,
     behaviour: 'tap',
     connect: [true, false],
     range: {
