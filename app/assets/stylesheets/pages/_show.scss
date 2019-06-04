@@ -23,16 +23,15 @@ $textShadow: rgba(black, 0.35) 1px 1px 1px;
   }
 }
 
-.back-btn {
-  color: white;
+.back-btn a {
   text-decoration: none;
-  background-color: #61E1E0;
-  padding: 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 28px;
-  text-align: center;
-  justify-content: flex-start;
+  color: #61E1E0;
+  padding: -1px 36px;
+  font-size: 36px;
+  margin-bottom: 65px;
+  position: absolute;
+  top: 80px;
+  right: 96.4%;
 }
 
 .display-job {
