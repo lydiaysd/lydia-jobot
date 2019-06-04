@@ -5,7 +5,7 @@
 
 .navbar {
   background-color: white;
-  border-bottom: 1px solid #A7ACAC;
+  border-bottom: 1px solid #EEEEEE;
   .sticky {
     position: fixed;
     top: 0;
@@ -21,7 +21,7 @@
   background-color: rgba(97, 225, 224, 0.09);
   width: 69px;
   color: #B3B0A9;
-  border-right: 1px solid #A7ACAC;
+  border-right: 1px solid #EEEEEE;
   display: flex;
   justify-content: center;
 }
@@ -33,7 +33,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #EEEEEE;
+  background-color: #EFEFEF;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 30px;
@@ -70,7 +70,7 @@
 .header-text {
   margin-left: 66px;
   margin-right: 67px;
-  border-bottom: 1px solid #A7ACAC;
+  border-bottom: 1px solid #EEEEEE;
   h2 {
     font-size: 24px;
     color: #A7ACAC;
@@ -80,7 +80,7 @@
     margin-left: 1px;
     margin-top: 50px;
     margin-bottom: 20px;
-    border-bottom: 1px solid #A7ACAC;
+    border-bottom: 1px solid #EEEEEE;
     margin-right: 1px;
   }
 }

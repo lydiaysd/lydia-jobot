@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
 
-  def index  
+  def index
     @user = current_user
     @jobs = Job.where(
       job_title: current_user.job_title,
