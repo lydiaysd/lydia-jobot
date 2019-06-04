@@ -33,4 +33,6 @@ const botScript = (e) => {
   }
 }
 
-document.getElementById('bot-start').querySelector('input').addEventListener('keydown', botScript)
+if (document.getElementById('bot-start')) {
+  document.getElementById('bot-start').querySelector('input').addEventListener('keydown', botScript)
+}

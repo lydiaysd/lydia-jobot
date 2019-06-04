@@ -28,10 +28,10 @@
           <div class="card-info">
             <h3><%= job.score(current_user) || 0 %></h3>
             <h3><%= job.job_title.truncate(25) %></h3>
-            <h5><%# job.location.truncate(30) %></h5>
-            <h5><%= job.date_posted %></h5>
-            <p><%# job.total_compensation.truncate(35) %></p>
-            <p><%= job.description.truncate(50) %></p>
+            <h5><%= job.location.gsub(/(?<=[a-z])(?=[A-Z])/, ' ') %></h5>
+            <h6>Posted: <%= job.date_posted %></h6>
+            <p><%= job.total_compensation.partition('per').first %></p>
+            <p><%= job.description.partition('Apply now').last.truncate(50) %></p>
           </div>
           <div class="overlay">
             <%= link_to 'View Job', job_path(job) %>

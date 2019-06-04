@@ -7,8 +7,8 @@
       <%= image_tag 'default-job.png', class: "default_job" %>
       <div class="job-title">
         <h2><%= @job.job_title %></h2>
-        <h3><%= @job.company %></h3>
-        <h3><%= @job.location %></h3>
+        <h3><%= @job.company.name.titleize %></h3>
+        <h3><%= @job.location.gsub(/(?<=[a-z])(?=[A-Z])/, ' ') %></h3>
       <!--   <div class="progress--circle progress--50">
           <div class="progress__number">50%</div>
         </div> -->
@@ -22,7 +22,7 @@
     <div class="job-actions">
       <div class="save-job">
         <i class="far fa-heart"> SAVE JOB</i>
-      </div>
+    </div>
       <div class="apply-job">
         <i class="fas fa-user-check"> APPLY</i>
         <br>
