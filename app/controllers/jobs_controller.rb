@@ -1,7 +1,19 @@
 class JobsController < ApplicationController
 
   def index
-    @jobs = Job.all
+    @jobs = Job.where(
+      job_title: current_user.job_title,
+      location: current_user.location,
+      # total_compensation: current_user.total_compensation,
+      # years_experience: current_user.years_experience,
+      # education_degree: current_user.education_degree,
+      # visa_sponsor: current_user.visa_sponsor,
+      # date_posted: current_user.date_posted,
+      # employment_type: current_user.employment_type
+    )
+
+    # skills and lnaguages?
+
   end
 
   def show

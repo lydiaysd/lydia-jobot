@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
+  authenticated :user do
+    root 'users#show', as: :authenticated_root
+  end
   root to: 'pages#home'
   get '/new', to: 'pages#new'
   get '/welcome', to: 'pages#welcome'
