@@ -13,8 +13,8 @@ class UsersController < ApplicationController
     @user.skills = @skillz.compact
     @languagez = params[:user][:language_ids].map { |language| Language.find(language) if language != "" }
     @user.languages = @languagez.compact
-    @degreez = params[:user][:education_degree] - [""]
-    @user.education_degree = @degreez
+    # @degreez = params[:user][:education_degree] - [""]
+    # @user.education_degree = @degreez
     @user.update(set_params)
     redirect_to jobs_path
   end
