@@ -23,22 +23,16 @@
 .speech {
   font-size: 16px;
   color: #A7ACAC;
-  // font-family:  "Open Sans", "Helvetica", "sans-serif";
   position: relative;
   width: 80%;
   height: 116px;
   text-align: center;
-  background-color:  #e5e6e8;
-  border: 4px  #666;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
+  background-color: #e5e6e8;
+  border: 4px #666;
   border-radius: 30px;
   padding-top: 18px;
-  // -webkit-box-shadow: 2px 5px 5px #888;
-  // -moz-box-shadow: 2px 2px 4px #888;
-  // box-shadow: 2px 2px 4px #888;
   left: 140px;
-  bottom: 20px
+  bottom: 20px;
 }
 
 .speech:before {
