@@ -69,7 +69,16 @@
     <div class="job-actions">
       <div class="save-job">
         <h5>Save Job</h5>
-        <i class="far fa-heart"></i>
+        <% if @job_saved == nil %>
+          <%= link_to job_saved_jobs_path(@job), method: :post do %>
+            <i class="far fa-heart"></i>
+          <% end %>
+        <% else %>
+          <%= link_to saved_job_path(@job), method: :destroy do %>
+            <i class="fas fa-heart"></i>
+          <% end %>
+        <% end %>
+
     </div>
       <div class="apply-job">
         <h5>Apply Now</h5>

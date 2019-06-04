@@ -1,23 +1,22 @@
 class SavedJobsController < ApplicationController
   def new
+    @saved_job = SavedJob.new
   end
 
   def create
     @job = Job.find(params[:job_id])
-    saved_job = SavedJob.new(job: @job, user: current_user)
-    if saved_job.save
-      respond_to do |format|
-        if format.js
-        else
-          redirect_back fallback_location: root_path
-        end
-      end
+    @saved_job = SavedJob.new(user: current_user)
+    @saved_job.job = @job
+    if @saved_job.save
+      redirect_to job_path(@job)
     else
-      redirect_back fallback_location: root_path
+      render :show
     end
   end
 
   def destroy
+    @saved_job = SavedJob.find(params[:id])
+    @saved_job.destroy
+    redirect_to job_path(@job)
   end
-
 end
