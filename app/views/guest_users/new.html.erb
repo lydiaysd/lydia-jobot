@@ -78,7 +78,7 @@
           <h5>What's your minimum total compensation (full year)?</h5>
         </div>
          <div class="jobot-speech-user">
-          <%= f.input :total_compensation, as: :string, label: false, placeholder: "e.g. 28,000", input_html: { class: 'bot-input' } %>
+          <%= f.input :total_compensation, as: :string, label: false, placeholder: "just numbers, no currency or comma... just numbers here!", input_html: { class: 'bot-input' } %>
         </div>
       </div>
 
@@ -101,21 +101,13 @@
         </div>
       </div>
 
-      <div class='bot-div' hidden>
-        <div class="jobot-speech">
-          <h5>Which industries are you interested in?</h5>
-        </div>
-        <div class="jobot-speech-user">
-          <%= f.association :industries, as: :select, label: false, collection: Industry.all, input_html: { class: 'js-example-basic-multiple bot-input', multiple: true } %>
-        </div>
-      </div>
 
       <div class='bot-div' hidden>
         <div class="jobot-speech">
           <h5>What's you education level?</h5>
         </div>
         <div class="jobot-speech-user">
-         <%= f.input :education_degree, as: :select, label: false, collection: @education_degrees, input_html: { class: 'js-example-basic-multiple bot-input', multiple: true, } %>
+         <%= f.input :education_degree, as: :select, label: false, collection: @education_degrees, input_html: { class: 'js-example-basic-multiple bot-input', multiple: true } %>
         </div>
       </div>
 
@@ -124,7 +116,17 @@
           <h5>What type of employment are you looking for?</h5>
         </div>
         <div class="jobot-speech-user">
-          <%= f.input :employment_type, as: :select, label: false, collection: Job.all.map(&:employment_type).uniq.reject(&:blank?), input_html: { class: 'js-example-basic-multiple bot-input', multiple: true } %>
+         <%= f.input :employment_type, as: :select, label: false, collection: @employment_types, input_html: { class: 'js-example-basic-multiple bot-input', multiple: true } %>
+        </div>
+      </div>
+
+      <div class='bot-div' hidden>
+        <div class="jobot-speech">
+          <h5>Ok, we're nearly done! Do you want jobot to find any special keywords? (you can try "Fintech" or "Startup", or "Market leader")</h5>
+<!--      <h5>What kind of industries are you intrested in?</h5>
+ -->     </div>
+        <div class="jobot-speech-user">
+          <%= f.association :industries, as: :select, label: false, collection: Industry.all, input_html: { class: 'js-example-basic-multiple bot-input', multiple: true } %>
         </div>
       </div>
 
@@ -149,12 +151,16 @@
           </div>
         </div>
           <%#= f.input :date_posted, as: :radio_buttons, input_html: { class: 'bot-input' } %>
+
+
+
         <div class="btn-div">
           <%= f.submit "Finish", class: "button singup-btn" %>
         </div>
         </div>
 
       </div>
+</div>
 
     <% end %>
     <%#= image_tag 'default-robot.png' %>

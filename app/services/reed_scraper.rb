@@ -1,7 +1,11 @@
 class ReedScraper
 
-  def initialize(job_title, location)
-    @url = "https://www.reed.co.uk/jobs/#{job_title.downcase.split.join('-')}-jobs-in-#{location.downcase.split.join('-')}"
+  def initialize(job_title, location, date_posted)
+    if date_posted
+      @url = "https://www.reed.co.uk/jobs/#{job_title.downcase.split.join('-')}-jobs-in-london?keywords=#{job_title.downcase.split.join('-')}&datecreatedoffset=LastTwoWeeks"
+    else
+      @url = "https://www.reed.co.uk/jobs/#{job_title.downcase.split.join('-')}-jobs-in-london?keywords=#{job_title.downcase.split.join('-')}"
+    end
     @html_doc = Nokogiri::HTML(open(@url).read)
   end
 
@@ -15,18 +19,20 @@ class ReedScraper
       html_show = Nokogiri::HTML(open(full_url).read)
       logo = html_show.search('.logo-wrap meta').attr('content')&.value
       company_url = html_show.search('.logo-wrap').attr('href')&.value
-      if company_url && company_url.match(/company-profile/)
-        company_show = Nokogiri::HTML(open("https://www.reed.co.uk#{company_url}").read)
-        company_industry = company_show.search('.information__item')
-        industry_name = company_industry.find { |e| e.search('.information__title').text.strip == "Sector" }
-        industry_name = industry_name.search('.information__description').text.strip
-        if Industry.find_by(name: industry_name)
-          industry = Industry.find_by(name: industry_name)
-        else
-          industry = Industry.new(name: industry_name)
-          industry.save
-        end
-      end
+      
+      # if company_url.match(/company-profile/)
+      #   company_show = Nokogiri::HTML(open("https://www.reed.co.uk#{company_url}").read)
+      #   company_industry = company_show.search('.information__item')
+      #   industry_name = company_industry.find { |e| e.search('.information__title').text.strip == "Sector" }
+      #   industry_name = industry_name.search('.information__description').text.strip
+      #   if Industry.find_by(name: industry_name)
+      #     industry = Industry.find_by(name: industry_name)
+      #   else
+      #     industry = Industry.new(name: industry_name)
+      #     industry.save
+      #   end
+      # end
+
       company_name = html_show.search('.posted span').text.strip.capitalize
       "company: #{company_name}, logo: #{logo}"
       company = Company.find_by(name: company_name)
@@ -40,20 +46,40 @@ class ReedScraper
           company.save
         end
       end
-      if CompanyIndustry.where(company: company, industry: industry).empty? && industry
-        CompanyIndustry.create(company: company, industry: industry)
-      end
+      # if CompanyIndustry.where(company: company, industry: industry).empty? && industry
+      #   CompanyIndustry.create(company: company, industry: industry)
+      # end
       company
-      job = Job.create!(
+      find_salary = html_show.search(".salary").text.strip
+
+      if find_salary.include?("day")
+        if find_salary.include?("-")
+          salary = find_salary.split("-").first.gsub(/\D/, "") * 252
+        else
+          salary = find_salary.gsub(/\D/, "")
+        end
+      elsif find_salary.include?("annum")
+        if find_salary.include?("-")
+          salary = find_salary.split("-").first.gsub(/\D/, "")
+        else
+          salary = find_salary.gsub(/\D/, "")
+        end
+      else
+        salary = find_salary
+      end
+
+      job = Job.new(
         job_title: html_show.search(".col-xs-12 h1").text.strip.gsub( /(\r\n)|(\s)/m, " " ),
         description: html_show.search(".description").text.strip,
-        total_compensation: html_show.search(".salary").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
+        total_compensation: salary,
         location: html_show.search('.location span[data-qa="localityLbl"]').text.strip.gsub( /(\r\n)|(\s)/m, "" ),
         employment_type: html_show.search(".time").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
         date_posted: Date.parse(html_show.search('.posted meta').attr('content')&.value),
         company: company,
         url: full_url
       )
+      job.visa_sponsor = /visa|sponsorship|sponsor/i.match?(j.description)
+      job.save
     end
   end
 end
