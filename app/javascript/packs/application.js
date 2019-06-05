@@ -7,8 +7,14 @@ import 'nouislider/distribute/nouislider.css';
 // import { initSlider } from '../components/init_slider';
 import { initOneHandleSlider } from '../components/init_slider';
 import { initSelect2 } from '../components/init_select2';
+import { typed } from '../components/typed';
+typed();
 import '../components/jobot'
-// initSelect2('select2');
+
+initSelect2('select2');
+initSelect2('js-example-basic-multiple');
+// initSlider('compensation_slider');
+
 initOneHandleSlider('experience_slider');
 console.log('hello')
 // initSlider('compensation_slider');
