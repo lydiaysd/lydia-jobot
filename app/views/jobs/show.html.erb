@@ -69,21 +69,30 @@
           </div>
         </div>
 
+      <p>Full Description Below<%= simple_format(@job.description) %></p>
+    </div>
+    <div class="job-actions">
+      <div class="save-job">
+        <h5>Save Job</h5>
+        <% if @job_saved == nil %>
 
-        <p>Full Description Below<%= simple_format(@job.description) %></p>
+          <%= link_to job_saved_jobs_path(@job), method: :post do %>
+            <i class="far fa-heart"></i>
+          <% end %>
+       <% else %>
+          <%= link_to saved_job_path(@job_saved), method: :delete do %>
+            <i class="fas fa-heart"></i>
+          <% end %>
+        <% end %>
       </div>
-      <div class="job-actions">
-        <div class="save-job">
-          <h5>Save Job</h5>
-          <i class="far fa-heart"></i>
-      </div>
-        <div class="apply-job">
-          <h5>Apply Now</h5>
-          <br>
-          <div class="apply-link">
-            <i class="fab fa-angellist"></i>
-            <a href="https://www.linkedin.com/jobs/view/web-developer-at-viqu-1291286515/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic&originalSubdomain=uk"> <i class="fab fa-linkedin"></i>
-          </div>
+    </div>
+      <div class="apply-job">
+        <h5>Apply Now</h5>
+        <br>
+        <div class="apply-link">
+          <i class="fab fa-angellist"></i>
+          <a href="https://www.linkedin.com/jobs/view/web-developer-at-viqu-1291286515/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic&originalSubdomain=uk"> <i class="fab fa-linkedin"></i>
+
         </div>
       </div>
     </div>
