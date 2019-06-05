@@ -4,7 +4,7 @@
       <div class="home-text">
         <h1>JoBot</h1>
         <p>Bringing you jobs from across the web</p>
-        <a href="welcome" class="get-started-btn">Get Started</a>
+        <%= link_to "Get Started", new_guest_user_path, class:'get-started-btn' %>
         <hr>
         <a href="#" ><i class="fa fa-angle-down"></i> </a>
       </div>
@@ -37,7 +37,7 @@
       </div>
      </div>
     <div>
-      <%= link_to "Get Started", welcome_path %>
+      <%= link_to "Get Started", new_guest_user_path %>
     </div>
   </div>
 </div>

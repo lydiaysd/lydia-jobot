@@ -8,8 +8,8 @@ import 'nouislider/distribute/nouislider.css';
 import { initOneHandleSlider } from '../components/init_slider';
 import { initSelect2 } from '../components/init_select2';
 import { typed } from '../components/typed';
-// typed();
-import '../components/jobot'
+typed('firstMessage', ["Let's find you some jobs!", "I can't read minds [ yet ], so before we start I'll need to ask a few questions...", "Let's get started!", "What's your name?"]);
+import '../components/jobot';
 
 initSelect2('select2');
 initSelect2('js-example-basic-multiple');

@@ -22,7 +22,7 @@
 
     <div class="job-details">
       <div class="job-description">
-        <p class="job-match" style="color:#A7ACAC;">This job matches <strong>XX%</strong> of your requirements!</p>
+        <p class="job-match" style="color:#A7ACAC;">This job matches <strong><%= @job.percentage(current_user) %>%</strong> of your requirements!</p>
 
         <div class="description-match-fields">
           <div class="box-1">
