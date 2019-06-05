@@ -1,65 +1,67 @@
 import $ from 'jquery'
 import Typed from 'typed.js';
-import { typed, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve } from '../components/typed';
+import { typed } from '../components/typed';
 
 const botScript = (e) => {
   if (e.key === 'Enter' || e.type === 'click') {
     if (e.key === 'Enter') {
-      e.preventDefault()
+      e.preventDefault();
     }
-    const div = e.currentTarget.closest('.bot-div')
-    const nextDiv = div.nextElementSibling
-    $('.select2-container--open').remove()
+    const div = e.currentTarget.closest('.bot-div');
+    const nextDiv = div.nextElementSibling;
+    $('.select2-container--open').remove();
     if (!nextDiv) {
       return
     }
-    const nextInputs = nextDiv.querySelectorAll('.bot-input')
-    nextDiv.removeAttribute('hidden')
-    div.setAttribute('hidden', true)
+    const nextInputs = nextDiv.querySelectorAll('.bot-input');
+    nextDiv.removeAttribute('hidden');
+    div.setAttribute('hidden', true);
     nextInputs.forEach(nextInput => {
       if (nextInput.type === 'text') {
+        nextInput.focus();
         nextInput.addEventListener('keydown', botScript)
       } else if (nextInput.type === 'radio') {
         nextInput.addEventListener('click', botScript)
       } else if (nextInput.type === 'select-multiple') {
         nextInput.parentNode.addEventListener('keydown', botScript)
       }
-    })
+    });
+    console.log(div.id);
     switch(div.id) {
       case 'bot-start':
         const name = e.currentTarget.value
-        two(name);
+        typed('two', [`Ok ${name}`,"what job titles are you looking for?"]);
         break;
       case 'bot-name':
-        three();
+        typed('three', ["Where do you want to work?"]);
         break;
       case 'bot-location':
         const location = e.currentTarget.value
-        four(location);
+        typed('four', [`Do you need a visa to work in ${location}?`]);
         break;
       case 'bot-visa':
-       five();
+        typed('five', ["What programming languages do you know?"]);
         break;
       case 'bot-program':
-        six();
+        typed('six', ["What human languages do you speak?"]);
         break;
       case 'bot-language':
-        seven();
+        typed('seven', ["What's your minimum total compensation (full year)?"]);
         break;
       case 'bot-money':
-        eight();
+        typed('eight', ["How many years of professional experience do you have?"]);
         break;
       case 'bot-experience':
-        nine();
+        typed('nine', ["What's your education level?"]);
         break;
       case 'bot-education':
-        ten();
+        typed('ten', ["What type of employment are you looking for?"]);
         break;
       case 'bot-employment':
-        eleven();
+        typed('eleven', ["Would you like to add any keywords such as 'Fintech', 'Startup', or 'Market leader'?"]);
         break;
       case 'bot-keyword':
-        twelve();
+        typed('twelve', ["Are you interested in jobs posted over 2 weeks ago?"]);
         break;
     }
   }

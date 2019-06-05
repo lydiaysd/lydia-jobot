@@ -6,10 +6,9 @@
   <span style="font-size:30px;cursor:pointer" onclick="openNav()"><i class="fas fa-sliders-h"></i></i></span>
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <%= render 'shared/preference_form' %>
+    <%= render 'shared/preference_form', education_degrees: GuestUsersController::EDUCATION_DEGREES, employment_types: GuestUsersController::EMPLOYMENT_TYPES %>
   </div>
 </div>
-
 <div class="index-body">
 
 <div class="header-text">
@@ -27,7 +26,7 @@
           <%= image_tag("default-job.png", class: 'm-2') %>
         <% end %>
           <div class="card-info">
-            <h3><%= job.score(current_user) || 0 %></h3>
+            <h3><%= job.percentage(current_user) || 0 %>%</h3>
             <h3><%= job.job_title.truncate(25) %></h3>
             <h5><%= job.location.gsub(/(?<=[a-z])(?=[A-Z])/, ' ') %></h5>
             <h6>Posted: <%= job.date_posted %></h6>

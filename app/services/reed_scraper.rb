@@ -6,6 +6,7 @@ class ReedScraper
     else
       @url = "https://www.reed.co.uk/jobs/#{job_title.downcase.split.join('-')}-jobs-in-london?keywords=#{job_title.downcase.split.join('-')}"
     end
+    Job.destroy_all
     @html_doc = Nokogiri::HTML(open(@url).read)
   end
 
@@ -78,6 +79,7 @@ class ReedScraper
         company: company,
         url: full_url
       )
+      job.years_experience = (0..5).to_a.sample
       job.visa_sponsor = /visa|sponsorship|sponsor/i.match?(job.description)
       job.save
     end
