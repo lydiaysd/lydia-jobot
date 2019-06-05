@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
 
   def index
+    @user = current_user
     @jobs = Job.where(
       job_title: current_user.job_title,
       location: current_user.location,
@@ -11,9 +12,7 @@ class JobsController < ApplicationController
       # date_posted: current_user.date_posted,
       # employment_type: current_user.employment_type
     )
-
     # skills and lnaguages?
-
   end
 
   def show

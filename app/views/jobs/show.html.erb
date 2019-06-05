@@ -1,68 +1,73 @@
 <div class="show-container">
 <!--   NavBar -->
-<div class="display-job">
-
-  <div class="job-header">
-      <%= cl_image_tag @job.company.logo, class: 'job-logo' %>
-      <div class="job-title">
-        <h2><%= @job.job_title.gsub(/(?<=[a-z])(?=[A-Z])/, ' ') %></h2>
-        <h3><%= @job.company.name.titleize %></h3>
-        <h5><%= @job.location.gsub(/(?<=[a-z])(?=[A-Z])/, ' ') %></h5>
-      </div>
-      <div class="progress--circle progress--75">
-        <div class="progress__number">75%</div>
-      </div>
+  <div class="back-btn">
+    <%= link_to jobs_path do %>
+    <i class="fas fa-arrow-left"></i>
+    <% end %>
   </div>
 
-  <div class="job-details">
-    <div class="job-description">
-      <p class="job-match" style="color:#A7ACAC;">This job matches <strong>XX%</strong> of your requirements!</p>
+  <div class="display-job">
 
-      <div class="description-match-fields">
-        <div class="box-1">
-          <div class="field">
-            <h6>Title</h6>
-            <p><%= @job.job_title.gsub(/(?<=[a-z])(?=[A-Z])/, ' ') %></p>
-          </div>
-          <div class="field">
-            <h6>Location</h6>
-            <p><%= @job.location.gsub(/(?<=[a-z])(?=[A-Z])/, ' ') %></p>
-          </div>
-          <div class="field">
-            <h6>Education</h6>
-            <p><%# Education %>Education</p>
-          </div>
+    <div class="job-header">
+        <%= cl_image_tag @job.company.logo, class: 'job-logo' %>
+        <div class="job-title">
+          <h2><%= @job.job_title.gsub(/(?<=[a-z])(?=[A-Z])/, ' ') %></h2>
+          <h3><%= @job.company.name.titleize.gsub(/(?<=[a-z])(?=[A-Z])/, ' ') %></h3>
+          <h5><%= @job.location.gsub(/(?<=[a-z])(?=[A-Z])/, ' ') %></h5>
         </div>
-        <div class="box-2">
-          <div class="field">
-            <h6>Years of Experience</h6>
-            <p><%# Years %>Years</p>
-          </div>
-          <div class="field">
-            <h6>Compensation</h6>
-            <p><%# Compensation %>Compensation</p>
-          </div>
-          <div class="field">
-            <h6>Skills</h6>
-            <p><%# Skills %>Skills</p>
-          </div>
+        <div class="progress--circle progress--75">
+          <div class="progress__number">75%</div>
         </div>
-        <div class="box-3">
-          <div class="field">
-            <h6>Industry</h6>
-            <p><%# Industry %>Industry</p>
-          </div>
-          <div class="field">
-            <h6>Languages</h6>
-            <p><%# Languages %>Languages</p>
-          </div>
-          <div class="field">
-            <h6>Visa</h6>
-            <p><%# Visa %>Visa</p>
-          </div>
-        </div>
-      </div>
+    </div>
 
+    <div class="job-details">
+      <div class="job-description">
+        <p class="job-match" style="color:#A7ACAC;">This job matches <strong>XX%</strong> of your requirements!</p>
+
+        <div class="description-match-fields">
+          <div class="box-1">
+            <div class="field">
+              <h6>Title</h6>
+              <p><%= @job.job_title.gsub(/(?<=[a-z])(?=[A-Z])/, ' ') %></p>
+            </div>
+            <div class="field">
+              <h6>Location</h6>
+              <p><%= @job.location.gsub(/(?<=[a-z])(?=[A-Z])/, ' ') %></p>
+            </div>
+            <div class="field">
+              <h6>Education</h6>
+              <p><%# Education %>Education</p>
+            </div>
+          </div>
+          <div class="box-2">
+            <div class="field">
+              <h6>Years of Experience</h6>
+              <p><%# Years %>Years</p>
+            </div>
+            <div class="field">
+              <h6>Compensation</h6>
+              <p><%# Compensation %>Compensation</p>
+            </div>
+            <div class="field">
+              <h6>Skills</h6>
+              <p><%# Skills %>Skills</p>
+            </div>
+          </div>
+          <div class="box-3">
+            <div class="field">
+              <h6>Industry</h6>
+              <p><%# Industry %>Industry</p>
+            </div>
+            <div class="field">
+              <h6>Languages</h6>
+              <p><%# Languages %>Languages</p>
+            </div>
+            <div class="field">
+              <h6>Visa</h6>
+              <p><%# Visa %>Visa</p>
+            </div>
+          </div>
+        </div>
 
       <p>Full Description Below<%= simple_format(@job.description) %></p>
     </div>
@@ -70,6 +75,7 @@
       <div class="save-job">
         <h5>Save Job</h5>
         <% if @job_saved == nil %>
+        <%= raise %>
           <%= link_to job_saved_jobs_path(@job), method: :post do %>
             <i class="far fa-heart"></i>
           <% end %>
@@ -78,7 +84,7 @@
             <i class="fas fa-heart"></i>
           <% end %>
         <% end %>
-
+      </div>
     </div>
       <div class="apply-job">
         <h5>Apply Now</h5>
@@ -86,10 +92,10 @@
         <div class="apply-link">
           <i class="fab fa-angellist"></i>
           <a href="https://www.linkedin.com/jobs/view/web-developer-at-viqu-1291286515/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic&originalSubdomain=uk"> <i class="fab fa-linkedin"></i>
+
         </div>
       </div>
     </div>
-  </div>
 
-</div>
+  </div>
 </div>

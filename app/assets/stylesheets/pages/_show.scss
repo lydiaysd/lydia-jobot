@@ -9,6 +9,7 @@ $textShadow: rgba(black, 0.35) 1px 1px 1px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .navbar {
@@ -20,6 +21,17 @@ $textShadow: rgba(black, 0.35) 1px 1px 1px;
     top: 0;
     width: 100%;
   }
+}
+
+.back-btn a {
+  text-decoration: none;
+  color: #61E1E0;
+  padding: -1px 36px;
+  font-size: 36px;
+  margin-bottom: 65px;
+  position: absolute;
+  top: 80px;
+  right: 96.4%;
 }
 
 .display-job {
@@ -53,7 +65,7 @@ $textShadow: rgba(black, 0.35) 1px 1px 1px;
 
 .job-logo {
   height: 60%;
-  margin-top: 20px;
+  margin: 20px;
 }
 
 .job-title {
