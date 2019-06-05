@@ -23,6 +23,11 @@
 
       <% @user.jobs.each do |job| %>
       <div class="card-saved">
+        <% if job.company.logo? %>
+          <%= cl_image_tag job.company.logo, class: 'm-2' %>
+        <% else %>
+          <%= image_tag("default-job.png", class: 'm-2') %>
+        <% end %>
         <div class="card-info">
           <h3><%= job.score(current_user) || 0 %></h3>
           <h3><%= job.job_title.truncate(25) %></h3>

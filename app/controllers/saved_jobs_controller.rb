@@ -1,10 +1,10 @@
 class SavedJobsController < ApplicationController
-  def index
-    @saved_jobs = policy_scope(SavedJob)
-    @user = current_user
-    @saved_jobs = SavedJob.where(user: @user)
-    @jobs = Job.where(user: @user)
-  end
+  # def index
+  #   @saved_jobs = policy_scope(SavedJob)
+  #   @user = current_user
+  #   @saved_jobs = SavedJob.where(user: @user)
+  #   @jobs = Job.where(user: @user)
+  # end
 
   def new
     @saved_job = SavedJob.new
