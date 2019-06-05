@@ -99,6 +99,30 @@ skill = Skill.create(name: "Haskell")
 skill = Skill.create(name: "HTML")
 skill = Skill.create(name: "CSS")
 
+Industry.destroy_all
+
+industry = Industry.create(name: "Healthcare")
+industry = Industry.create(name: "Technology")
+industry = Industry.create(name: "Fintech")
+industry = Industry.create(name: "Healthtech")
+# industry = Industry.create(name: "Swift")
+# industry = Industry.create(name: "TypeScript")
+# industry = Industry.create(name: "Go Programming Language")
+# industry = Industry.create(name: "SQL")
+# industry = Industry.create(name: "Ruby on Rails")
+# industry = Industry.create(name: "R Programming Language")
+# industry = Industry.create(name: "PHP")
+# industry = Industry.create(name: "Perl")
+# industry = Industry.create(name: "Kotlin")
+# industry = Industry.create(name: "C#")
+# industry = Industry.create(name: "Rust")
+# industry = Industry.create(name: "Scheme")
+# industry = Industry.create(name: "Erlang")
+# industry = Industry.create(name: "Scala")
+# industry = Industry.create(name: "Elixir")
+# industry = Industry.create(name: "Haskell")
+# industry = Industry.create(name: "HTML")
+# industry = Industry.create(name: "CSS")
 
 # puts "Scraping jobs from reed.co.uk"
 
