@@ -17,7 +17,8 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
-    @job_saved = @job.saved_jobs.where(user: current_user)
+    @job_saved = SavedJob.find_by(user: current_user, job: @job)
+    # SavedJob.find(user: current_user, job_id: @job)
   end
 
   def new
