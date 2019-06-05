@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     # @degreez = params[:user][:education_degree] - [""]
     # @user.education_degree = @degreez
     @user.update(set_params)
-    ReedScraper.new(@user.job_title, @user.location).scrape
+    ReedScraper.new(@user.job_title, @user.location, @user.date_posted).scrape
     redirect_to jobs_path
   end
 
