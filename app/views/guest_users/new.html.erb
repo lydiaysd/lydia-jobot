@@ -99,7 +99,7 @@
           </h5>
         </div>
          <div class="jobot-speech-user">
-          <%= f.input :total_compensation, as: :string, label: false, placeholder: "just numbers, no currency or comma... just numbers here!", input_html: { class: 'bot-input' } %>
+          <%= f.input :total_compensation, as: :string, label: false, placeholder: "ex. 28000", input_html: { class: 'bot-input' } %>
         </div>
       </div>
 
@@ -125,9 +125,12 @@
         </div>
       </div>
 
-      <div class='bot-div' hidden>
+      <div id="bot-education" class='bot-div' hidden>
         <div class="jobot-speech">
-          <h5>What's you education level?</h5>
+         <!--  <h5>What's you education level?</h5> -->
+          <h5>
+            <span id="nine"></span>
+          </h5>
 
         </div>
         <div class="jobot-speech-user">
@@ -135,10 +138,13 @@
         </div>
       </div>
 
-      <div id="bot-education" class='bot-div' hidden>
+      <div id="bot-employment" class='bot-div' hidden>
         <div class="jobot-speech">
 
-          <h5>What type of employment are you looking for?</h5>
+         <!--  <h5>What type of employment are you looking for?</h5> -->
+         <h5>
+           <span id="ten"></span>
+         </h5>
 
         </div>
         <div class="jobot-speech-user">
@@ -146,12 +152,16 @@
         </div>
       </div>
 
-      <div id="bot-employment" class='bot-div' hidden>
+      <div id="bot-keyword" class='bot-div' hidden>
         <div class="jobot-speech">
 
-          <h5>Ok, we're nearly done! Do you want jobot to find any special keywords? (you can try "Fintech" or "Startup", or "Market leader")</h5>
+         <!--  <h5>Would you like to add any keywords such as "Fintech", "Startup", or "Market leader"?</h5> -->
 <!--      <h5>What kind of industries are you intrested in?</h5>
- -->     </div>
+ -->
+            <h5>
+              <span id="eleven"></span>
+            </h5>
+          </div>
         <div class="jobot-speech-user">
           <%= f.association :industries, as: :select, label: false, collection: Industry.all, input_html: { class: 'js-example-basic-multiple bot-input', multiple: true } %>
         </div>
