@@ -59,21 +59,21 @@ let eight = () => {
 };
 let nine = () => {
   new Typed('#nine', {
-    strings: ["Which industries are you interested in?"],
+    strings: ["What's your education level?"],
     typeSpeed: 45,
     loop: false
   });
 };
 let ten = () => {
   new Typed('#ten', {
-    strings: ["What's you education level?"],
+    strings: ["What type of employment are you looking for?"],
     typeSpeed: 45,
     loop: false
   });
 };
 let eleven = () => {
   new Typed('#eleven', {
-    strings: ["What type of employment are you looking for?"],
+    strings: ["Would you like to add any keywords such as 'Fintech', 'Startup', or 'Market leader'?"],
     typeSpeed: 45,
     loop: false
   });

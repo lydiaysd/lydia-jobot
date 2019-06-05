@@ -52,13 +52,13 @@ const botScript = (e) => {
       case 'bot-experience':
         nine();
         break;
-      case 'bot-industries':
+      case 'bot-education':
         ten();
         break;
-      case 'bot-education':
+      case 'bot-employment':
         eleven();
         break;
-      case 'bot-employment':
+      case 'bot-keyword':
         twelve();
         break;
     }

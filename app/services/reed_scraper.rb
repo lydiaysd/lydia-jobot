@@ -10,7 +10,7 @@ class ReedScraper
   end
 
   def scrape
-    @html_doc.search(".job-result").first(10).each do |element|
+    @html_doc.search(".job-result").first(30).each do |element|
       compensation = element.search('.salary').text.strip
       location = element.search('.location').text.split.slice(2)
       date = element.search('.posted-by').text.strip
@@ -19,7 +19,7 @@ class ReedScraper
       html_show = Nokogiri::HTML(open(full_url).read)
       logo = html_show.search('.logo-wrap meta').attr('content')&.value
       company_url = html_show.search('.logo-wrap').attr('href')&.value
-      
+
       # if company_url.match(/company-profile/)
       #   company_show = Nokogiri::HTML(open("https://www.reed.co.uk#{company_url}").read)
       #   company_industry = company_show.search('.information__item')
@@ -78,7 +78,7 @@ class ReedScraper
         company: company,
         url: full_url
       )
-      job.visa_sponsor = /visa|sponsorship|sponsor/i.match?(j.description)
+      job.visa_sponsor = /visa|sponsorship|sponsor/i.match?(job.description)
       job.save
     end
   end
