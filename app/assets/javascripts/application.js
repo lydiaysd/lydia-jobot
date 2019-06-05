@@ -4,7 +4,7 @@
 // DOWN ARROW LANDING PAGE
 
 function openNav() {
-  document.getElementById("mySidenav").style.width = "500px";
+  document.getElementById("mySidenav").style.width = "700px";
 }
 
 function closeNav() {
