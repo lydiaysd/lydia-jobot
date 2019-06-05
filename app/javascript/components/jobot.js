@@ -1,4 +1,6 @@
 import $ from 'jquery'
+import Typed from 'typed.js';
+import { typed, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve } from '../components/typed';
 
 const botScript = (e) => {
   if (e.key === 'Enter' || e.type === 'click') {
@@ -23,12 +25,42 @@ const botScript = (e) => {
         nextInput.parentNode.addEventListener('keydown', botScript)
       }
     })
-    if(div.id === 'bot-start') {
-      const name = e.currentTarget.value
-      nextDiv.firstElementChild.innerHTML = `<h5>Ok ${name}, what job titles are you looking for</h5>`
-    } else if (div.id === 'bot-location') {
-      const location = e.currentTarget.value
-      nextDiv.firstElementChild.innerHTML = `<h5>Do you need a visa to work in ${location}?</h5>`
+    switch(div.id) {
+      case 'bot-start':
+        const name = e.currentTarget.value
+        two(name);
+        break;
+      case 'bot-name':
+        three();
+        break;
+      case 'bot-location':
+        const location = e.currentTarget.value
+        four(location);
+        break;
+      case 'bot-visa':
+       five();
+        break;
+      case 'bot-program':
+        six();
+        break;
+      case 'bot-language':
+        seven();
+        break;
+      case 'bot-money':
+        eight();
+        break;
+      case 'bot-experience':
+        nine();
+        break;
+      case 'bot-industries':
+        ten();
+        break;
+      case 'bot-education':
+        eleven();
+        break;
+      case 'bot-employment':
+        twelve();
+        break;
     }
   }
 }

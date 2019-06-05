@@ -5,8 +5,11 @@
 
       <div id="bot-start" class='bot-div'>
         <div class="jobot-speech">
-          <h5>Let’s get started!</h5>
-          <h5>What is your name?</h5>
+          <!-- <h5>Let’s get started!</h5>
+          <h5>What's your name?</h5> -->
+          <h5>
+            <span id="firstMessage"></span>
+          </h5>
         </div>
         <div class="jobot-speech-user">
           <%= f.input :name, as: :string, label: false,placeholder: "your name here...", input_html: { class: 'bot-input' } %>
@@ -15,7 +18,10 @@
 
       <div id="bot-name" class='bot-div' hidden>
         <div class="jobot-speech">
-          <h5>Ok #{name}, what job titles are you looking for?</h5>
+          <!-- <h5>Ok #{name}, what job titles are you looking for?</h5> -->
+          <h5>
+            <span id="two"></span>
+          </h5>
         </div>
         <div class="jobot-speech-user">
           <%= f.input :job_title, as: :string, label: false, placeholder: "job title here...", input_html: { class: 'bot-input' } %>
@@ -24,16 +30,22 @@
 
       <div id="bot-location" class='bot-div' hidden>
         <div class="jobot-speech">
-          <h5>Where do you want to work?</h5>
+          <!-- <h5>Where do you want to work?</h5> -->
+          <h5>
+            <span id="three"></span>
+          </h5>
         </div>
         <div class="jobot-speech-user">
           <%= f.input :location, as: :string, label: false, placeholder: "type your location here...",input_html: { class: 'bot-input' } %>
         </div>
       </div>
 
-      <div id="" class='bot-div' hidden>
+      <div id="bot-visa" class='bot-div' hidden>
         <div class="jobot-speech">
-          <h5>Do you need a visa to work in #{location}?</h5>
+          <!-- <h5>Do you need a visa to work in #{location}?</h5> -->
+          <h5>
+            <span id="four"></span>
+          </h5>
         </div>
         <div class="jobot-speech-user">
           <div class="radio-btn-container">
@@ -54,9 +66,12 @@
         <%#= f.input :visa_sponsor, as: :radio_buttons, input_html: { class: 'radio-btn bot-input', checked: false } %>
       </div>
 
-      <div class='bot-div' hidden>
+      <div id="bot-program" class='bot-div' hidden>
         <div class="jobot-speech">
-          <h5>What programming languages do you know?</h5>
+          <!-- <h5>What programming languages do you know?</h5> -->
+          <h5>
+            <span id="five"></span>
+          </h5>
         </div>
         <div class="jobot-speech-user">
           <%= f.association :skills, as: :select, label: false, collection: Skill.all, input_html: { class: 'js-example-basic-multiple bot-input', multiple: true } %>
@@ -64,18 +79,24 @@
       </div>
 
 
-      <div class='bot-div' hidden>
+      <div id="bot-language" class='bot-div' hidden>
         <div class="jobot-speech">
-          <h5>What human languages do you speak?</h5>
+          <!-- <h5>What human languages do you speak?</h5> -->
+          <h5>
+            <span id="six"></span>
+          </h5>
         </div>
         <div class="jobot-speech-user">
           <%= f.association :languages, as: :select, label: false, collection: Language.all, input_html: { class: 'js-example-basic-multiple bot-input', multiple: true } %>
         </div>
       </div>
 
-      <div class='bot-div' hidden>
+      <div id="bot-money" class='bot-div' hidden>
         <div class="jobot-speech">
-          <h5>What's your minimum total compensation (full year)?</h5>
+          <!-- <h5>What's your minimum total compensation (full year)?</h5> -->
+          <h5>
+            <span id="seven"></span>
+          </h5>
         </div>
          <div class="jobot-speech-user">
           <%= f.input :total_compensation, as: :string, label: false, placeholder: "e.g. 28,000", input_html: { class: 'bot-input' } %>
@@ -90,9 +111,12 @@
           </div>
         </div> -->
 
-      <div class='bot-div' hidden>
+      <div id="bot-experience" class='bot-div' hidden>
         <div class="jobot-speech">
-          <h5>How many years of professional experience do you have?</h5>
+          <!-- <h5>How many years of professional experience do you have?</h5> -->
+          <h5>
+            <span id="eight"></span>
+          </h5>
         </div>
           <!-- here I have to put the fields themselfs that are going to be linked to the slider -->
         <div class="jobot-speech-user">
@@ -101,36 +125,48 @@
         </div>
       </div>
 
-      <div class='bot-div' hidden>
+      <div id="bot-industries" class='bot-div' hidden>
         <div class="jobot-speech">
-          <h5>Which industries are you interested in?</h5>
+          <!-- <h5>Which industries are you interested in?</h5> -->
+          <h5>
+            <span id="nine"></span>
+          </h5>
         </div>
         <div class="jobot-speech-user">
           <%= f.association :industries, as: :select, label: false, collection: Industry.all, input_html: { class: 'js-example-basic-multiple bot-input', multiple: true } %>
         </div>
       </div>
 
-      <div class='bot-div' hidden>
+      <div id="bot-education" class='bot-div' hidden>
         <div class="jobot-speech">
-          <h5>What's you education level?</h5>
+          <!-- <h5>What's you education level?</h5> -->
+          <h5>
+            <span id="ten"></span>
+          </h5>
         </div>
         <div class="jobot-speech-user">
          <%= f.input :education_degree, as: :select, label: false, collection: @education_degrees, input_html: { class: 'js-example-basic-multiple bot-input', multiple: true, } %>
         </div>
       </div>
 
-      <div class='bot-div' hidden>
+      <div id="bot-employment" class='bot-div' hidden>
         <div class="jobot-speech">
-          <h5>What type of employment are you looking for?</h5>
+          <!-- <h5>What type of employment are you looking for?</h5> -->
+          <h5>
+            <span id="eleven"></span>
+          </h5>
         </div>
         <div class="jobot-speech-user">
           <%= f.input :employment_type, as: :select, label: false, collection: Job.all.map(&:employment_type).uniq.reject(&:blank?), input_html: { class: 'js-example-basic-multiple bot-input', multiple: true } %>
         </div>
       </div>
 
-      <div class='bot-div' hidden>
+      <div id="bot-30" class='bot-div' hidden>
         <div class="jobot-speech">
-          <h5>Are you interested in jobs posted over 30 days ago?</h5>
+          <!-- <h5>Are you interested in jobs posted over 30 days ago?</h5> -->
+          <h5>
+            <span id="twelve"></span>
+          </h5>
         </div>
         <div class="jobot-speech-user">
           <div class="radio-btn-container">
