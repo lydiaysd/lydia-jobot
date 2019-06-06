@@ -3,7 +3,7 @@
 
     <div class="profile">
       <div class="user-avatar">
-        <%= image_tag "default-user.png", class: "avatar-large", alt: "avatar-large" %>
+        <%= link_to current_user.name.first, "#", class: "avatar-bordered name-letter" %>
       </div>
       <div class="user-name">
         <h2 class="mb-0"> <%= @user.name %> </h2>
@@ -18,7 +18,7 @@
 
   <div class="user-jobs">
     <div class="header-text border-bottom-0">
-      <h2>You have XX saved jobs</h2>
+      <h2>You have <%= @user.jobs.count %> saved jobs</h2>
     </div>
 
       <% @user.jobs.each do |job| %>
@@ -29,7 +29,7 @@
           <%= image_tag("default-job.png", class: 'm-2') %>
         <% end %>
         <div class="card-info">
-          <h3><%= job.percentage(current_user) || 0 %>%</h3>
+          <h3 class="score"><%= job.percentage(current_user) || 0 %>%</h3>
           <h3><%= job.job_title.truncate(25) %></h3>
           <h5><%= job.location.gsub(/(?<=[a-z])(?=[A-Z])/, ' ') %></h5>
           <h6>Posted: <%= job.date_posted %></h6>
