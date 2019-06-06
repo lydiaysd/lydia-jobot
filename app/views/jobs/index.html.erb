@@ -30,7 +30,7 @@
             <h3><%= job.job_title.truncate(25) %></h3>
             <h5><%= job.location.gsub(/(?<=[a-z])(?=[A-Z])/, ' ') %></h5>
             <h6>Posted: <%= job.date_posted %></h6>
-            <p><%= job.total_compensation.partition('per').first %></p>
+            <p style="float: left; width: 100%; text-align: left;">£<%= job.total_compensation.partition('per').first %></p>
             <p><%= job.description.partition('Apply now').last.truncate(50) %></p>
           </div>
           <div class="overlay">
