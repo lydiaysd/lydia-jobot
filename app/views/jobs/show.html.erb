@@ -3,6 +3,11 @@
 <% years_experience_ternary = @years_experience_binary ? "tag-green" : "tag-grey"  %>
 
 <div class="show-container">
+  <div class="back-btn">
+    <%= link_to jobs_path do %>
+    <i class="fas fa-arrow-left"></i>
+    <% end %>
+  </div>
   <div class="show-holder">
     <div class="show-header">
       <div class="show-header-text d-flex ">
