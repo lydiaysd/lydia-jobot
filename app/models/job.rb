@@ -25,33 +25,26 @@ class Job < ApplicationRecord
   }
 
   def score(user)
-    score = 0
-    score += 1 if /"#{user.job_title}"/i.match?(job_title)
-    score += 1 if /"#{user.location}"/i.match?(location)
-
+    score = 2 # 1 for location and 1 for job title
     score += 1 if total_compensation.to_i >= user.total_compensation.to_i
-
     score += 1 if years_experience.to_i <= user.years_experience.to_i
-
     score += 1 if Job.search_by_description(user.education_degree).include?(self)
-
     score += visa_sponsor == user.visa_sponsor ? 1 : 0
-    if user.date_posted
-      score += 1
-    else
-      score += date_posted > Date.today - 2.weeks ? 1 : 0
-    end
-
     score += 1 if Job.search_by_employment_type(user.employment_type).include?(self)
+    score += 1 if user.date_posted != nil
+
+    # if user.date_posted
+    #   score += 1
+    # else
+    #   score += date_posted > Date.today - 2.weeks ? 1 : 0
+    # end
 
     user.skills.each do |s|
       score += 1 if Job.search_by_description(s.name).include?(self)
     end
-
     user.languages.each do |l|
       score += 1 if Job.search_by_description(l.name).include?(self)
     end
-
     user.industries.each do |i|
       score += 1 if Job.search_by_description(i.name).include?(self)
     end
@@ -59,11 +52,9 @@ class Job < ApplicationRecord
   end
 
   def percentage(user)
-    (score(user).fdiv(9 + user.skills.size + user.languages.size + user.industries.size) * 100).round(0)
+    (score(user).fdiv(7 + user.skills.size + user.languages.size + user.industries.size) * 100).round(0)
   end
 end
-
-
 # add job id and skill id to job_skills table (done)
 # remove skills from jobs table (done)
 # create simple form for a job (done but needs better styling)

@@ -11,8 +11,8 @@ class GuestUsersController < ApplicationController
     @guest_user.skill_ids = params[:guest_user][:skill_ids].reject(&:blank?)
     @guest_user.language_ids = params[:guest_user][:language_ids].reject(&:blank?)
     @guest_user.industry_ids = params[:guest_user][:industry_ids].reject(&:blank?)
-    @guest_user.education_degree = params[:guest_user][:education_degree]
-    @guest_user.employment_type = params[:guest_user][:employment_type]
+    @guest_user.education_degree = params[:guest_user][:education_degree][1]
+    @guest_user.employment_type = params[:guest_user][:employment_type][1]
     @guest_user.save
     reed_scrape(@guest_user.job_title, @guest_user.location, @guest_user.date_posted)
     session[:guest_user_id] = @guest_user.id
