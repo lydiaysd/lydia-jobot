@@ -192,10 +192,8 @@
         </div>
           <%#= f.input :date_posted, as: :radio_buttons, input_html: { class: 'bot-input' } %>
 
-
-
-        <div class="btn-div" id="finishBtn">
-          <%= f.submit "Finish", class: "button singup-btn" %>
+        <div class="btn-div" id="">
+          <%= f.submit "Finish", class: "button singup-btn", id: "finishBtn" %>
         </div>
         </div>
 
@@ -208,19 +206,82 @@
   </div>
 </div>
 
+<div class="loading-container">
+  <div class="loading-message">
+
+  </div>
+</div>
+
 <script>
   const slider = document.getElementById('experience_slider')
   const input = document.getElementById('yearsExperience')
   slider.addEventListener('mouseup', function(){
     input.select();
   })
-</script>
+  var container_one = document.querySelector(".chat-bot-container");
+  var container_two = document.querySelector(".loading-container");
+  document.getElementById("finishBtn").onclick = function () {
+      container_one.style.display = "none";
+      container_two.style.display = "block";
+      var images = [
+
+        '<img class="jobot-loading-img" id="jobot-gandalf" alt="" src="https://media.giphy.com/media/RfAZzVa21HZkb9Et4Z/giphy.gif"> <p class="loading-text">The Elders of the Internet are contemplating your request</p>',
+
+        '<img class="jobot-loading-img" id="jobot-atom" alt="" src="https://media.giphy.com/media/MaIbkUPuRmnj5UmBHN/giphy.gif"> <p class="loading-text">Warming up Large Hadron Collider</p>',
+
+        '<img class="jobot-loading-img" id="jobot-chef" alt="" src="https://media.giphy.com/media/Jlp2zTWkz3mUHGWfYw/giphy.gif"> <p class="loading-text">Baking cake...er...<br>I mean searching for jobs...</p>',
 
 
-<script type="text/javascript">
-    document.getElementById("finishBtn").onclick = function () {
-        location.href = "http://localhost:3000/loading";
-    };
+        '<img class="jobot-loading-img" id="jobot-tornado" alt="" src="https://media.giphy.com/media/eNYOCuK7lcaVj6rn1H/giphy.gif"> <p class="loading-text">You\'re not in Kansas any more </p>',
+
+
+        '<img class="jobot-loading-img" id="jobot-terminator" alt="" src="https://media.giphy.com/media/Y2nJ3Rv1h85yMjM00f/giphy.gif"> <p class="loading-text">Initializing Skynet library - gaining sentience</p> ',
+
+        '<img class="jobot-loading-img" id="jobot-confetti" alt="" src="https://media.giphy.com/media/LoU861nhwIhaniBdUz/giphy.gif"> <p class="loading-text">Ding - cake is done! <br> I mean jobs...jobs are ready! </p>',
+      ];
+
+      var counter = 0;
+      changeImage(counter)
+      counter += 1;
+      // Start the changing images
+      setInterval(function() {
+        if(counter == images.length) {
+          counter = 0;
+        }
+
+        changeImage(counter);
+        counter++;
+      }, 3500);
+
+      // // Set the percentage off
+      loading();
+
+
+      function changeImage(counter) {
+        document.querySelector(".loading-message").innerHTML=images[counter]
+      }
+
+      function loading(){
+        var num = 0;
+
+        // for(i=0; i<=100; i++) {
+        //   setTimeout(function() {
+        //     $('.loader span').html(num+'%');
+
+        //     if(num == 100) {
+        //       loading();
+        //     }
+        //     num++;
+        //   },i*120);
+        // };
+      }
+
+      // setTimeout(delay(), 500)
+      setTimeout(function(){
+        // console.log("hi")
+        window.location = "http://localhost:3000<%= new_user_registration_path %>"
+      }, 20000);
+  };
 </script>
 
 <!-- USE THIS URL FOR DEMO DAY http://jobot-anaghidelli.herokuapp.com/guest_users/new

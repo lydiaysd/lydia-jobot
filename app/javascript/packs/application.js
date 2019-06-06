@@ -15,8 +15,6 @@ initSelect2('select2');
 initSelect2('js-example-basic-multiple');
 initOneHandleSlider('experience_slider');
 // initSlider('compensation_slider');
-
-console.log('hello')
 // initSlider('compensation_slider');
 // import { initAutocomplete } from '../plugins/init_autocomplete';
 // initAutocomplete();
