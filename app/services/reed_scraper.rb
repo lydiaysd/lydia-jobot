@@ -41,11 +41,12 @@ class ReedScraper
       unless company
         begin
         company = Company.new(name: company_name)
-        company.remote_logo_url = logo.nil? ? './app/assets/images/default-robot.png' : logo
-        company.save
+        company.remote_logo_url = logo.nil? ? "./app/assets/images/default-job.png" : logo
+        company.save!
         rescue => e
-          company.remote_logo_url = image_url('default-job.png')
-          company.save
+          company = Company.new(name: company_name)
+          # company.remote_logo_url = "./app/assets/images/default-job.png"
+          company.save!
         end
       end
       # if CompanyIndustry.where(company: company, industry: industry).empty? && industry
