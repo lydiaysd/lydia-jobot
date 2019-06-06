@@ -43,7 +43,7 @@ class ReedScraper
         company.remote_logo_url = logo.nil? ? './app/assets/images/default-robot.png' : logo
         company.save
         rescue => e
-          company.remote_logo_url = './app/assets/images/default-robot.png'
+          company.remote_logo_url = image_url('default-job.png')
           company.save
         end
       end
