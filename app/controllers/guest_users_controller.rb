@@ -1,6 +1,6 @@
 class GuestUsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :create]
-  EDUCATION_DEGREES = ['High School', 'Bachelor', 'Master', 'Phd', 'Any']
+  EDUCATION_DEGREES = ["A Levels", "Bachelor's Degree", "Master's Degree", "PhD"]
   EMPLOYMENT_TYPES = ['Full-time', 'Part-time', 'Internship', 'Any']
   def new
     @guest_user = GuestUser.new
