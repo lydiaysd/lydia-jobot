@@ -223,9 +223,10 @@ $textShadow: rgba(black, 0.35) 1px 1px 1px;
 
 .show-holder {
   width: 80vw;
-  height: 70vh;
   box-shadow: 1px 1px 30px rgba(60,60,60,.5);
   margin-bottom: 15vh;
+  padding-bottom: 20px;
+  min-height: 70vh;
 }
 
 .show-header {
@@ -341,6 +342,7 @@ $textShadow: rgba(black, 0.35) 1px 1px 1px;
 
 .turquoise-text {
   color: #61E1E0;
+  margin-bottom: 32px;
 }
 
 .grid-links {

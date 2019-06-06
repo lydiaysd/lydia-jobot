@@ -53,7 +53,7 @@ class ReedScraper
       #   CompanyIndustry.create(company: company, industry: industry)
       # end
       company
-      find_salary = html_show.search(".salary span").text.strip
+      find_salary = html_show.search(".salary span").first.text.strip
 
       if find_salary.include?("day")
         if find_salary.include?("-")
