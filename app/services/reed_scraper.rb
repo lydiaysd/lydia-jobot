@@ -15,6 +15,7 @@ class ReedScraper
       compensation = element.search('.salary').text.strip
       location = element.search('.location').text.split.slice(2)
       date = element.search('.posted-by').text.strip
+      title = element.search('.title').text.strip
       show_url = element.search(".title a").attribute('href').value
       full_url = "https://www.reed.co.uk#{show_url}"
       html_show = Nokogiri::HTML(open(full_url).read)
@@ -51,11 +52,11 @@ class ReedScraper
       #   CompanyIndustry.create(company: company, industry: industry)
       # end
       company
-      find_salary = html_show.search(".salary").text.strip
+      find_salary = html_show.search(".salary span").text.strip
 
       if find_salary.include?("day")
         if find_salary.include?("-")
-          salary = find_salary.split("-").first.gsub(/\D/, "") * 252
+          salary = (find_salary.split("-").first).delete('£').to_i * 252
         else
           salary = find_salary.gsub(/\D/, "")
         end
@@ -66,15 +67,15 @@ class ReedScraper
           salary = find_salary.gsub(/\D/, "")
         end
       else
-        salary = find_salary
+        salary = find_salary.first(17)
       end
 
       job = Job.new(
-        job_title: html_show.search(".col-xs-12 h1").text.strip.gsub( /(\r\n)|(\s)/m, " " ),
-        description: html_show.search(".description").text.strip,
+        job_title: title,
+        description: html_show.search(".description").text.strip.squish,
         total_compensation: salary,
-        location: html_show.search('.location span[data-qa="localityLbl"]').text.strip.gsub( /(\r\n)|(\s)/m, "" ),
-        employment_type: html_show.search(".time").text.strip.gsub( /(\r\n)|(\s)/m, "" ),
+        location: html_show.search('.location span[data-qa="localityLbl"]').text.strip.squish,
+        employment_type: html_show.search(".time span").first.text.strip.squish,
         date_posted: Date.parse(html_show.search('.posted meta').attr('content')&.value),
         company: company,
         url: full_url
