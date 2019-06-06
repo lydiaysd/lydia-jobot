@@ -30,7 +30,7 @@ const botScript = (e) => {
     switch(div.id) {
       case 'bot-start':
         const name = e.currentTarget.value
-        typed('two', [`Ok ${name},`,"what job titles are you looking for?"]);
+        typed('two', [`Ok ${name},`,"What job titles are you looking for?"]);
         break;
       case 'bot-name':
         typed('three', ["Where do you want to work?"]);

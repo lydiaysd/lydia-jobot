@@ -194,7 +194,7 @@
 
 
 
-        <div class="btn-div">
+        <div class="btn-div" id="finishBtn">
           <%= f.submit "Finish", class: "button singup-btn" %>
         </div>
         </div>
@@ -215,3 +215,16 @@
     input.select();
   })
 </script>
+
+
+<script type="text/javascript">
+    document.getElementById("finishBtn").onclick = function () {
+        location.href = "http://localhost:3000/loading";
+    };
+</script>
+
+<!-- USE THIS URL FOR DEMO DAY http://jobot-anaghidelli.herokuapp.com/guest_users/new
+ -->
+
+
+
