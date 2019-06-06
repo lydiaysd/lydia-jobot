@@ -14,7 +14,7 @@
 
 
 .dropdown-item {
-  font-family: Montserrat;
+  font-family: Open Sans;
   color: #61E1E0;
 }
 
@@ -26,16 +26,25 @@
 
 .name-letter {
 text-decoration: none;
-font-family: Montserrat;
+font-family: Open Sans;
 color: #DAD8D8;
 font-size: 24px;
-&:hover {
-  text-decoration: none;
-  color: #DAD8D8;
-
-}
+  &:hover {
+    text-decoration: none;
+    color: #DAD8D8;
+  }
 }
 
 .dropdown-toggle::after {
   display: none;
+}
+
+.dropdown {
+  border: 1px solid #d9d8d8;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
