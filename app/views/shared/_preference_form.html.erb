@@ -11,7 +11,7 @@
 
   <div>
 
-    <%= f.input :total_compensation, label: "Compensation (e.g. 28,000) £", as: :string %>
+    <%= f.input :total_compensation, label: "Compensation (e.g. 28000)", as: :string %>
 
     <div id="experience_slider" class="m-4" ></div>
     <%= f.input :years_experience, input_html: { id: "yearsExperience", placeholder: @user.years_experience }  %>
@@ -20,7 +20,7 @@
 
     <%= f.input :employment_type, as: :select, collection: employment_types, input_html: { class: 'js-example-basic-multiple' } %>
 
-    <%= f.input :date_posted, label: "Post over 30 days old?", as: :radio_buttons %>
+    <%= f.input :date_posted, label: "Interested in jobs posted more the 2 weeks ago?", as: :radio_buttons, checked: current_user.date_posted  %>
     <%= f.submit "Refresh", class: "singup-btn m-3" %>
   </div>
   <div class="years_experience"><%= @user.years_experience %> </div>

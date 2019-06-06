@@ -178,19 +178,19 @@
           <div class="radio-btn-container">
           <div style="width: 100px; display: flex, justify-content: center;">
             <div class="form-check">
-              <input class="form-check-input radio_buttons optional radio-btn bot-input" type="radio" value="true" name="guest_user[visa_sponsor]" id="guest_user_visa_sponsor_true">
-              <label class="collection_radio_buttons" for="guest_user_visa_sponsor_true">Yes</label>
+              <input class="form-check-input radio_buttons optional radio-btn bot-input" type="radio" value="true" name="guest_user[date_posted]" id="guest_user_date_posted_true">
+              <label class="collection_radio_buttons" for="guest_user_date_posted_true">Yes</label>
             </div>
           </div>
           <div style="width: 100px; display: flex, justify-content: center;">
             <div class="form-check">
-              <input class="form-check-input radio_buttons optional radio-btn bot-input" readonly="readonly" type="radio" value="false" name="guest_user[visa_sponsor]" id="guest_user_visa_sponsor_false">
-              <label class="collection_radio_buttons" for="guest_user_visa_sponsor_false">No</label>
+              <input class="form-check-input radio_buttons optional radio-btn bot-input" readonly="readonly" type="radio" value="false" name="guest_user[date_posted]" id="guest_user_date_posted_false">
+              <label class="collection_radio_buttons" for="guest_user_date_posted_false">No</label>
             </div>
           </div>
+          <%#= f.input :date_posted, as: :radio_buttons, input_html: { class: 'bot-input' } %>
           </div>
         </div>
-          <%#= f.input :date_posted, as: :radio_buttons, input_html: { class: 'bot-input' } %>
 
         <div class="btn-div" id="">
           <%= f.submit "Finish", class: "button singup-btn", id: "finishBtn" %>

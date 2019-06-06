@@ -24,3 +24,18 @@
 }
 
 
+.name-letter {
+text-decoration: none;
+font-family: Montserrat;
+color: #DAD8D8;
+font-size: 24px;
+&:hover {
+  text-decoration: none;
+  color: #DAD8D8;
+
+}
+}
+
+.dropdown-toggle::after {
+  display: none;
+}

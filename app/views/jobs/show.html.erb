@@ -106,13 +106,15 @@
           <h5 class="turquoise-text">apply now</h5>
           <div class="grid-links">
             <div class="grid-link">
-              <%= image_tag 'reed', class: "grid-link-img" %>
+              <%= link_to @job.url do %>
+              <%= image_tag 'reed.png', class: "grid-link-img" %>
+              <% end %>
             </div>
             <div class="grid-link">
-              <%= image_tag 'linkedin', class: "grid-link-img" %>
+              <%= image_tag 'linkedin.png', class: "grid-link-img" %>
             </div>
             <div class="grid-link">
-              <%= image_tag 'monster', class: "grid-link-img" %>
+              <%= image_tag 'monster.png', class: "grid-link-img" %>
             </div>
           </div>
         </div>
