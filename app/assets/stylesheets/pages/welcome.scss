@@ -33,6 +33,7 @@
   bottom: 20px;
     p {
       font-size: 16px;
+      font-weight: 300;
       color: #A7ACAC;
     }
 }
@@ -121,6 +122,9 @@
     color: rgba(0,0,0,0.2);
     background: transparent;
     outline: none;
+    border: 1px solid rgba(97, 225, 224, 0.5);
+    border-radius: 8px;
+    padding: 24px;
   }
   ::placeholder {
     color: rgba(0,0,0,0.2);
@@ -146,8 +150,10 @@
 
 .jobot-robot-chat {
   position: absolute;
-  left:  -120px;
-  top: 20%;
+  left: -205px;
+  top: 7%;
+  height: 200px;
+  width: 200px;
 
 }
 
@@ -160,16 +166,55 @@
   background-color: transparent;
   width: 500px;
 }
+
+.select2-selection.select2-selection--multiple {
+  outline: 0;
+  outline: none;
+  border: 1px solid rgba(97, 225, 224, 0.5);
+  border-radius: 8px;
+  background: rgba(97, 225, 224, 0.3);
+
+}
+
 .select2 .select2-container--default .select2-selection--multiple .select2-selection__choice {
   background-color: transparent;
   font-family: "Montserrat";
   font-size: 30px;
-  color: rgba(0,0,0,0.2);
+  color: gba(97, 225, 224, 0.3);
   text-align: center;
+  outline: none;
 }
 
-.select2 .select2-container--default.select2-container--focus .select2-selection--multiple {
-  background-color: transparent;
+.select2-container--default .select2-selection--multiple {
+  outline: 0;
+  outline: none;
+  border: 1px solid rgba(97, 225, 224, 0.5);
+  border-radius: 8px;
+  background-color: rgba(97, 225, 224, 0.3);
+  background: transparent;
+}
+
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+  outline: 0;
+  outline: none;
+  border: 1px solid rgba(97, 225, 224, 0.5);
+  border-radius: 8px;
+  background-color: rgba(97, 225, 224, 0.3);
+  background: transparent;
+}
+
+span.select2-container--default .select2-selection--multiple {
+  background-color: rgba(97, 225, 224, 0.3);
+  border: 1px solid rgba(97, 225, 224, 0.5);
+  border-radius: 8px;
+  cursor: text;
+  background: transparent;
+  }
+
+span.select2-container--default.select2-container--focus .select2-selection--multiple {
+  border: 1px solid rgba(97, 225, 224, 0.5);
+  outline: 0;
 }
 
 .radio-btn {
@@ -191,3 +236,7 @@
     color: rgba(0,0,0,0.2);
   }
 }
+
+// .btn-div {
+//   outline: none;
+// }

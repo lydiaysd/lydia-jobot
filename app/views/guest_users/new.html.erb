@@ -1,7 +1,7 @@
 <div class="chat-bot-container">
   <div class="container d-flex justify-content-center align-items-center" style="">
     <%= simple_form_for @guest_user do |f| %>
-    <%= image_tag 'default-robot.png', class: "jobot-robot-chat" %>
+    <%= image_tag 'headtilt-jobot.png', class: "jobot-robot-chat" %>
 
       <div id="bot-start" class='bot-div'>
         <div class="jobot-speech">
@@ -12,7 +12,7 @@
           </h5>
         </div>
         <div class="jobot-speech-user">
-          <%= f.input :name, as: :string, label: false,placeholder: "your name here...", input_html: { class: 'bot-input', autofocus: true } %>
+          <%= f.input :name, as: :string, label: false,placeholder: "", input_html: { class: 'bot-input', autofocus: true } %>
         </div>
       </div>
 
@@ -24,7 +24,7 @@
           </h5>
         </div>
         <div class="jobot-speech-user">
-          <%= f.input :job_title, as: :string, label: false, placeholder: "job title here...", input_html: { class: 'bot-input' } %>
+          <%= f.input :job_title, as: :string, label: false, placeholder: "", input_html: { class: 'bot-input' } %>
         </div>
       </div>
 
@@ -36,7 +36,7 @@
           </h5>
         </div>
         <div class="jobot-speech-user">
-          <%= f.input :location, as: :string, label: false, placeholder: "type your location here...",input_html: { class: 'bot-input' } %>
+          <%= f.input :location, as: :string, label: false, placeholder: "",input_html: { class: 'bot-input' } %>
         </div>
       </div>
 
@@ -99,7 +99,7 @@
           </h5>
         </div>
          <div class="jobot-speech-user">
-          <%= f.input :total_compensation, as: :string, label: false, placeholder: "ex. 28000", input_html: { class: 'bot-input' } %>
+          <%= f.input :total_compensation, as: :string, label: false, placeholder: "e.g. 28000", input_html: { class: 'bot-input' } %>
         </div>
       </div>
 

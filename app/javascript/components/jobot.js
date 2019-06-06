@@ -30,7 +30,7 @@ const botScript = (e) => {
     switch(div.id) {
       case 'bot-start':
         const name = e.currentTarget.value
-        typed('two', [`Ok ${name}`,"what job titles are you looking for?"]);
+        typed('two', [`Ok ${name},`,"what job titles are you looking for?"]);
         break;
       case 'bot-name':
         typed('three', ["Where do you want to work?"]);
@@ -52,16 +52,16 @@ const botScript = (e) => {
         typed('eight', ["How many years of professional experience do you have?"]);
         break;
       case 'bot-experience':
-        typed('nine', ["What's your education level?"]);
+        typed('nine', ["What's your highest level of completed education?"]);
         break;
       case 'bot-education':
         typed('ten', ["What type of employment are you looking for?"]);
         break;
       case 'bot-employment':
-        typed('eleven', ["Would you like to add any keywords such as 'Fintech', 'Startup', or 'Market leader'?"]);
+        typed('eleven', ["Would you like to add any keywords such as 'Fintech' or 'Startup'?"]);
         break;
       case 'bot-keyword':
-        typed('twelve', ["Are you interested in jobs posted over 2 weeks ago?"]);
+        typed('twelve', ["Are you interested in jobs posted more than two weeks ago?"]);
         break;
     }
   }
