@@ -95,7 +95,7 @@
       </div>
       <div class="show-links">
         <div class="align-text-center">
-          <h5 class="turquoise-text">save this job</h5>
+          <!-- <h5 class="turquoise-text">save this job</h5> -->
           <% if @job_saved == nil %>
 
             <%= link_to job_saved_jobs_path(@job), method: :post do %>
@@ -108,7 +108,7 @@
           <% end %>
         </div>
         <div>
-          <h5 class="turquoise-text">apply now</h5>
+          <h5 class="turquoise-text">Apply Now</h5>
           <div class="grid-links">
             <div class="grid-link">
               <%= link_to @job.url do %>
