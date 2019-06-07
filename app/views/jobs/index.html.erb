@@ -34,7 +34,7 @@
             <p><%= job.description.partition('Apply now').last.truncate(50) %></p>
           </div>
           <div class="overlay">
-            <%= link_to 'View Job', job_path(job) %>
+            <%= link_to 'View Job', job_path(job), class: "padding-fix" %>
           </div>
       </div>
 

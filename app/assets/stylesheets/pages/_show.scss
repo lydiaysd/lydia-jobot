@@ -313,15 +313,17 @@ $textShadow: rgba(black, 0.35) 1px 1px 1px;
 .tag-green {
   background-color: #F1FFE5;
   color: #8E9E9E;
-  padding: 5px 15px;
-  border-radius: 10px;
+  padding: 6px 16px;
+  border-radius: 8px;
+  border: 0.5px solid #89E93E;
 }
 
 .tag-grey {
   background-color: #F9F9F9;
   color: #8E9E9E;
-  padding: 5px 15px;
-  border-radius: 10px;
+  padding: 6px 16px;
+  border-radius: 8px;
+  border: 0.5px solid #8E9E9E;
 }
 
 .show-content-details-row {
