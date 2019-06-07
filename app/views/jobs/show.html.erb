@@ -33,59 +33,59 @@
         <div class="show-job-match light-grey">This job matches <span class="highlight"><%= @job.percentage(current_user) %>%</span> of your requirements!</div>
         <div class="show-content-details-row">
           <div class="show-content-tag">
-            <h5 class="light-grey margin-bottom">job title:</h5>
+            <h5 class="light-grey margin-bottom">Job Title:</h5>
             <span class="tag-green"><%= current_user.job_title %></span>
           </div>
           <div class="show-content-tag">
-            <h5 class="light-grey margin-bottom">location:</h5>
+            <h5 class="light-grey margin-bottom">Location:</h5>
             <span class="tag-green"><%= current_user.location %></span>
           </div>
           <div class="show-content-tag">
-            <h5 class="light-grey margin-bottom">visa:</h5>
+            <h5 class="light-grey margin-bottom">Visa:</h5>
             <span class="<%= visa_ternary %>"><%= current_user.visa_sponsor ? "Yes please!" : "No need" %></span>
           </div>
           <div class="show-content-tag">
-            <h5 class="light-grey margin-bottom">years of experience:</h5>
+            <h5 class="light-grey margin-bottom">Years of Experience:</h5>
             <span class="<%= years_experience_ternary %>"><%= current_user.years_experience %></span>
           </div>
         </div>
         <div class="show-content-details-row">
           <div class="show-content-tag">
-            <h5 class="light-grey margin-bottom">education:</h5>
+            <h5 class="light-grey margin-bottom">Education:</h5>
             <% education_degree_ternary = Job.search_by_description(current_user.education_degree).include?(@job) ? "tag-green" : "tag-grey" %>
             <span class="<%= education_degree_ternary %>"><%= current_user.education_degree %></span>
           </div>
           <div class="show-content-tag">
-            <h5 class="light-grey margin-bottom">total compensation:</h5>
+            <h5 class="light-grey margin-bottom">Minimum Compensation:</h5>
             <span class="<%= compensation_ternary %>"><%= current_user.total_compensation %></span>
           </div>
           <div class="show-content-tag">
-            <h5 class="light-grey margin-bottom">posted:</h5>
+            <h5 class="light-grey margin-bottom">Posted:</h5>
             <span class="tag-green"><%= @job.date_posted %></span>
           </div>
           <div class="show-content-tag">
-            <h5 class="light-grey margin-bottom">employment type:</h5>
+            <h5 class="light-grey margin-bottom">Employment Type:</h5>
             <% employment_type_ternary = Job.search_by_employment_type(current_user.employment_type).include?(@job) ? "tag-green" : "tag-grey" %>
             <span class="<%= employment_type_ternary %>"><%= current_user.employment_type %></span>
           </div>
         </div>
         <div class="show-content-details-row">
           <div class="show-content-tag">
-            <h5 class="light-grey margin-bottom">skills:</h5>
+            <h5 class="light-grey margin-bottom">Skills:</h5>
               <% current_user.skills.each do |s| %>
                 <% skill_ternary = Job.search_by_description(s.name).include?(@job) ? "tag-green" : "tag-grey" %>
                 <span class="<%= skill_ternary %>"><%= s.name %></span>
               <% end %>
           </div>
           <div class="show-content-tag">
-            <h5 class="light-grey margin-bottom">keywords:</h5>
+            <h5 class="light-grey margin-bottom">Keywords:</h5>
               <% current_user.industries.each do |i| %>
               <% industry_ternary = Job.search_by_description(i.name).include?(@job) ? "tag-green" : "tag-grey" %>
                 <span class="<%= industry_ternary %>"><%= i.name %></span>
               <% end %>
           </div>
           <div class="show-content-tag">
-            <h5 class="light-grey margin-bottom">languages:</h5>
+            <h5 class="light-grey margin-bottom">Languages:</h5>
               <% current_user.languages.each do |l| %>
               <% language_ternary = Job.search_by_description(l.name).include?(@job) ? "tag-green" : "tag-grey" %>
                 <span class="<%= language_ternary %>"><%= l.name %></span>
