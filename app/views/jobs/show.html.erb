@@ -2,12 +2,12 @@
 <% compensation_ternary = @total_compensation_binary ? "tag-green" : "tag-grey" %>
 <% years_experience_ternary = @years_experience_binary ? "tag-green" : "tag-grey"  %>
 
-<div class="show-container">
   <div class="back-btn">
     <%= link_to jobs_path do %>
     <i class="fas fa-arrow-left" style="font-size: 30px;"></i>
     <% end %>
   </div>
+<div class="show-container">
   <div class="show-holder">
     <div class="show-header">
       <div class="show-header-text d-flex ">
@@ -95,7 +95,7 @@
       </div>
       <div class="show-links">
         <div class="align-text-center">
-          <!-- <h5 class="turquoise-text">save this job</h5> -->
+          <h5 class="turquoise-text">save this job</h5>
           <% if @job_saved == nil %>
 
             <%= link_to job_saved_jobs_path(@job), method: :post do %>
@@ -108,7 +108,7 @@
           <% end %>
         </div>
         <div>
-          <h5 class="turquoise-text">Apply Now</h5>
+          <h5 class="turquoise-text">apply now</h5>
           <div class="grid-links">
             <div class="grid-link">
               <%= link_to @job.url do %>

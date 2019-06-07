@@ -40,7 +40,7 @@ const botScript = (e) => {
         typed('four', [`Do you need a visa to work in ${location}?`]);
         break;
       case 'bot-visa':
-        typed('five', ["What programming languages do you know?"]);
+        typed('five', ["What programming skills do you have?"]);
         break;
       case 'bot-program':
         typed('six', ["What human languages do you speak?"]);
