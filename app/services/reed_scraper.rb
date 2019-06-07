@@ -2,9 +2,9 @@ class ReedScraper
 
   def initialize(job_title, location, date_posted)
     if date_posted
-      @url = "https://www.reed.co.uk/jobs/#{job_title.downcase.split.join('-')}-jobs-in-london?keywords=#{job_title.downcase.split.join('-')}&datecreatedoffset=LastTwoWeeks"
+      @url = "https://www.reed.co.uk/jobs/#{job_title.downcase.split.join('-')}-jobs-in-#{location.downcase}?keywords=#{job_title.downcase.split.join('-')}&datecreatedoffset=LastTwoWeeks"
     else
-      @url = "https://www.reed.co.uk/jobs/#{job_title.downcase.split.join('-')}-jobs-in-london?keywords=#{job_title.downcase.split.join('-')}"
+      @url = "https://www.reed.co.uk/jobs/#{job_title.downcase.split.join('-')}-jobs-in-#{location.downcase}?keywords=#{job_title.downcase.split.join('-')}"
     end
     Job.destroy_all
     @html_doc = Nokogiri::HTML(open(@url).read)
@@ -34,8 +34,7 @@ class ReedScraper
       #     industry.save
       #   end
       # end
-
-      company_name = html_show.search('.posted span').text.strip.capitalize
+      company_name = html_show.search('.posted span').first.text.strip
       "company: #{company_name}, logo: #{logo}"
       company = Company.find_by(name: company_name)
       unless company
