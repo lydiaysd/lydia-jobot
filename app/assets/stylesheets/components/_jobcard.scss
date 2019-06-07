@@ -22,6 +22,10 @@
       -webkit-filter: blur(2px);
       filter: blur(2px);
     }
+    .m-2 {
+      -webkit-filter: blur(2px);
+      filter: blur(2px);
+    }
   }
 }
 
@@ -30,8 +34,10 @@
   transition: 1s all;
   border-radius: 3px;
   position: absolute;
-  top: 10px;
+  // top: 10px;
+  top: 0;
   left: 0;
+  right: 0;
   bottom: 0;
   width: 100%;
   color: #fff;
@@ -49,9 +55,10 @@
     margin: 0;
     background-color: #61E1E0;
     border-radius: 8px;
-    padding: 18px 24px;
+    padding: 48px 163px;
     opacity: 0.80;
     text-decoration: none;
+    border-radius: 3px;
   }
 }
 
@@ -96,6 +103,7 @@
   position: absolute;
   top: 14px;
   right: 20px;
+  color: #A7ACAC;
 }
 
 .card-info h5 {
@@ -110,7 +118,6 @@
   margin: 0;
   color: #A7ACAC;
 }
-
 
 .card-info p {
   font-size: 12px;
